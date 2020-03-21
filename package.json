@@ -33,6 +33,7 @@
     "build": "NODE_ENV=production webpack",
     "clean": "rm -rf dist",
     "dev": "webpack-dev-server",
+    "format": "prettier --write '*.js' 'src/**/*'",
     "start": "yarn dev"
   }
 }
