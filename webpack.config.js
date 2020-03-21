@@ -18,6 +18,23 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: MiniCSSExtractPlugin.loader,
+            options: {
+              hmr: !isProdEnv,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: !isProdEnv,
+            },
+          },
+        ],
+      },
+      {
         exclude: /node_modules/,
         test: /\.tsx?$/,
         use: [
@@ -33,13 +50,12 @@ module.exports = {
               cacheDirectory: true,
             },
           },
-        ],
-      },
-      {
-        test: /\.css$/i,
-        use: [
-          isProdEnv ? MiniCSSExtractPlugin.loader : 'style-loader',
-          'css-loader',
+          {
+            loader: 'linaria/loader',
+            options: {
+              sourceMap: !isProdEnv,
+            },
+          },
         ],
       },
     ],
@@ -48,6 +64,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
   },
   plugins: [
+    new MiniCSSExtractPlugin(),
     new ForkTSCheckerWebpackPlugin(),
     new HTMLWebpackPlugin({
       title: pkg.name,
@@ -55,9 +72,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    alias: {
-      react: 'preact/compat',
-    },
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 };

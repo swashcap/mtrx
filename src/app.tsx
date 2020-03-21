@@ -1,5 +1,11 @@
-import { h, render } from 'preact';
+import React from 'react';
+import { render } from 'react-dom';
+import { styled } from 'linaria/react';
 
 const appEl = document.getElementById('app');
 
-render(<h1>Hello!</h1>, appEl);
+const App = styled.h1`
+  font-family: sans-serif;
+`;
+
+render(<App>Hello!</App>, appEl);
