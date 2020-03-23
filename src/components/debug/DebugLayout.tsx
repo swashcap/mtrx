@@ -8,6 +8,7 @@ import { HStack } from '../layout/HStack';
 import { styled } from 'linaria/react';
 
 const DebugLayoutOuter = styled.div`
+
   height: 100%;
   left: 0;
   position: absolute;
@@ -16,10 +17,12 @@ const DebugLayoutOuter = styled.div`
 `;
 
 const DebugLayoutMiddle = styled(ContentContainer)`
+
   height: 100%;
 `;
 
 const DebugLayoutInner = styled(ContentGrid)`
+
   height: 100%;
 `;
 

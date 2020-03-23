@@ -5,7 +5,9 @@ export interface DebugGridProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const DebugGrid = styled.div<DebugGridProps>`
-  background-image: linear-gradient(
+
+  background-image:
+    linear-gradient(
       0deg,
       rgba(255, 0, 0) 0,
       rgba(255, 0, 0, 0) 1px

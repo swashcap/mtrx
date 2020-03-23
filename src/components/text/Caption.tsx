@@ -9,7 +9,9 @@ export interface CaptionProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export const Caption = styled.span<CaptionProps>`
-  color: ${({ color }) =>
+
+  color:
+    ${({ color }) =>
     color === 'secondary' ? 'var(--color-text-light)' : 'inherit'};
   font-size: var(--font-small-size);
   font-weight: ${({ bold }) => (bold ? '700' : '400')};

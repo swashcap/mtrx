@@ -47,9 +47,11 @@ const BaseBox = styled.div`
   &.h1 {
     height: var(--spacing-100);
   }
+
   &.h2 {
     height: var(--spacing-200);
   }
+
   &.h3 {
     height: var(--spacing-300);
   }
@@ -58,43 +60,54 @@ const BaseBox = styled.div`
   &.ma0 {
     margin: 0;
   }
+
   &.ma1 {
     margin: var(--spacing-100);
   }
+
   &.ma2 {
     margin: var(--spacing-200);
   }
+
   &.ma3 {
     margin: var(--spacing-300);
   }
+
   &.mv0 {
     margin-bottom: 0;
     margin-top: 0;
   }
+
   &.mv1 {
     margin-bottom: var(--spacing-100);
     margin-top: var(--spacing-100);
   }
+
   &.mv2 {
     margin-bottom: var(--spacing-200);
     margin-top: var(--spacing-200);
   }
+
   &.mv3 {
     margin-bottom: var(--spacing-300);
     margin-top: var(--spacing-300);
   }
+
   &.mh0 {
     margin-left: 0;
     margin-right: 0;
   }
+
   &.mh1 {
     margin-left: var(--spacing-100);
     margin-right: var(--spacing-100);
   }
+
   &.mh2 {
     margin-left: var(--spacing-200);
     margin-right: var(--spacing-200);
   }
+
   &.mh3 {
     margin-left: var(--spacing-300);
     margin-right: var(--spacing-300);
@@ -104,43 +117,54 @@ const BaseBox = styled.div`
   &.pa0 {
     padding: 0;
   }
+
   &.pa1 {
     padding: var(--spacing-100);
   }
+
   &.pa2 {
     padding: var(--spacing-200);
   }
+
   &.pa3 {
     padding: var(--spacing-300);
   }
+
   &.pv0 {
     padding-bottom: 0;
     padding-top: 0;
   }
+
   &.pv1 {
     padding-bottom: var(--spacing-100);
     padding-top: var(--spacing-100);
   }
+
   &.pv2 {
     padding-bottom: var(--spacing-200);
     padding-top: var(--spacing-200);
   }
+
   &.pv3 {
     padding-bottom: var(--spacing-300);
     padding-top: var(--spacing-300);
   }
+
   &.ph0 {
     padding-left: 0;
     padding-right: 0;
   }
+
   &.ph1 {
     padding-left: var(--spacing-100);
     padding-right: var(--spacing-100);
   }
+
   &.ph2 {
     padding-left: var(--spacing-200);
     padding-right: var(--spacing-200);
   }
+
   &.ph3 {
     padding-left: var(--spacing-300);
     padding-right: var(--spacing-300);
@@ -150,9 +174,11 @@ const BaseBox = styled.div`
   &.w1 {
     width: var(--spacing-100);
   }
+
   &.w2 {
     width: var(--spacing-200);
   }
+
   &.w3 {
     width: var(--spacing-300);
   }

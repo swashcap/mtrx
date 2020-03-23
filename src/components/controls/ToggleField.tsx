@@ -6,6 +6,7 @@ import { Text } from '../text/Text';
 import { HStack } from '../layout/HStack';
 
 const ToggleFieldLabel = styled.label`
+
   display: block;
 `;
 

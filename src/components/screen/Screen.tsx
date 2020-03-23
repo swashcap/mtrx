@@ -8,6 +8,7 @@ import { ScreenDescriptor } from './ScreenDescriptor';
 import { ScreenViewport } from './ScreenViewport';
 
 const ScreenWrapper = styled(Box)<BoxProps & { width: number }>`
+
   width: ${props => props.width}px;
 `;
 
@@ -29,7 +30,7 @@ export const Screen: React.FC<ScreenProps> = ({
     width={width}
     {...rest}
   >
-    <ScreenViewport children={children} style={{ height, width }} />
+    <ScreenViewport children={children} style={{ height, width, }} />
     <ScreenDescriptor
       name={name}
       size={

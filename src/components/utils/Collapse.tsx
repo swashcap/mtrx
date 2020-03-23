@@ -3,6 +3,7 @@ import { cx } from 'linaria';
 import { styled } from 'linaria/react';
 
 export const CollapseButton = styled.button`
+
   background: transparent;
   border: none;
   color: var(--color-text-light);
@@ -15,7 +16,7 @@ export const CollapseButton = styled.button`
   text-align: left;
   width: 100%;
 
-  &:after {
+  &::after {
     content: '▾';
     display: inline-block;
     position: absolute;
@@ -24,7 +25,7 @@ export const CollapseButton = styled.button`
   }
 
   /* Collapsed */
-  &.collapsed:after {
+  &.collapsed::after {
     content: '▸';
   }
 `;

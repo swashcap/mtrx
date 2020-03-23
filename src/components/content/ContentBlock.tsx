@@ -20,7 +20,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({
       <ContentGridColumn
         columns={12}
         gutter={gutter}
-        style={{ height: gutter }}
+        style={{ height: gutter, }}
       />
       <ContentGridColumn columns={12} gutter={gutter}>
         <ContentBlockHalf />
@@ -28,7 +28,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({
       <ContentGridColumn
         columns={12}
         gutter={gutter}
-        style={{ height: gutter }}
+        style={{ height: gutter, }}
       />
       {Array.from(new Array(columns)).map((_, index) => (
         <ContentGridColumn key={index} columns={12 / columns} gutter={gutter}>
@@ -38,7 +38,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({
       <ContentGridColumn
         columns={12}
         gutter={gutter}
-        style={{ height: gutter }}
+        style={{ height: gutter, }}
       />
       {Array.from(new Array(columns)).map((_, index) => (
         <ContentGridColumn key={index} columns={12 / columns} gutter={gutter}>
@@ -48,7 +48,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({
       <ContentGridColumn
         columns={12}
         gutter={gutter}
-        style={{ height: gutter }}
+        style={{ height: gutter, }}
       />
       {Array.from(new Array(columns - 1)).map((_, index) => (
         <Fragment key={index}>
@@ -75,7 +75,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = ({
           <ContentGridColumn
             columns={12}
             gutter={gutter}
-            style={{ height: gutter }}
+            style={{ height: gutter, }}
           />
         </Fragment>
       ))}

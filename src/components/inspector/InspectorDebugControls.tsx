@@ -26,7 +26,7 @@ export const InspectorDebugControls: React.FC<InspectorDebugControlsProps> = ({
 }) => (
   <InspectorFormSection heading="Debug" {...rest}>
     <HStack gap={2}>
-      <VStack gap={2} style={{ flex: 1 }}>
+      <VStack gap={2} style={{ flex: 1, }}>
         <ToggleField
           inputProps={{
             checked: showGrid,
@@ -53,7 +53,7 @@ export const InspectorDebugControls: React.FC<InspectorDebugControlsProps> = ({
       <NumericField
         label="Grid size"
         inputProps={{ onChange: onGridSizeChange, value: gridSize }}
-        style={{ flex: 1 }}
+        style={{ flex: 1, }}
       />
     </HStack>
   </InspectorFormSection>

@@ -5,10 +5,11 @@ import { css } from 'linaria';
  * {@link https://github.com/callstack/linaria/blob/master/docs/BASICS.md#adding-global-styles}
  */
 export const globalStyles = css`
+  /* stylelint-disable selector-pseudo-class-no-unknown */
   :global() {
     *,
-    *:after,
-    *:before {
+    *::after,
+    *::before {
       box-sizing: border-box;
     }
 
@@ -17,6 +18,7 @@ export const globalStyles = css`
       font-size: 87.5%; /* 14px */
       line-height: 1.286; /* 18px */
     }
+
     html,
     body {
       height: 100%;

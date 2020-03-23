@@ -6,7 +6,9 @@ import { VStack } from '../layout/VStack';
 import { BoxProps } from '../layout/Box';
 
 const Fieldset = styled.fieldset`
+
   border: none;
+
   /* TODO: figure out why passing box prop fails */
   margin: 0;
   padding: 0 var(--spacing-300);

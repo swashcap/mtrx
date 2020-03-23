@@ -2,12 +2,14 @@ import React from 'react';
 import { styled } from 'linaria/react';
 
 const ToggleInputInput = styled.input`
+
   opacity: 0;
   position: absolute;
   z-index: -1;
 `;
 
 const ToggleInputIndicator = styled.span`
+  /* stylelint-disable no-descending-specificity */
   background: var(--color-input-background);
   border-color: var(--color-border);
   border-radius: 999px;
@@ -20,16 +22,17 @@ const ToggleInputIndicator = styled.span`
   user-select: none;
   width: calc(2em + 2 * var(--border-width));
 
-  input:focus ~ &:after,
+  input:focus ~ &::after,
   &:focus::after,
   &:hover::after {
     background: var(--color-focus);
   }
+
   &:active::after {
     background: var(--color-active);
   }
 
-  &:after {
+  &::after {
     background: var(--color-text);
     border-radius: 100%;
     content: '';
@@ -39,7 +42,7 @@ const ToggleInputIndicator = styled.span`
   }
 
   /* Checked */
-  input:checked ~ &:after {
+  input:checked ~ &::after {
     transform: translateX(100%);
   }
 `;

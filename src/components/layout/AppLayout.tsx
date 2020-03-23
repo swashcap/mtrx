@@ -2,16 +2,19 @@ import React from 'react';
 import { styled } from 'linaria/react';
 
 const AppLayoutWrapper = styled.div`
+
   display: flex;
   height: 100vh;
 `;
 
 const AppLayoutContent = styled.div`
+
   flex: 1;
   overflow-y: scroll;
 `;
 
 const AppLayoutSidebar = styled.div`
+
   height: 100vh;
   overflow-y: scroll;
   width: 240px;

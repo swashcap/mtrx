@@ -20,6 +20,7 @@ export interface InspectorProps extends VStackProps {
 }
 
 const InspectorWrapper = styled(VStack)`
+
   background: var(--color-background);
   color: var(--color-text);
   height: 100%;

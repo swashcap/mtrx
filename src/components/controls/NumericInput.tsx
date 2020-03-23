@@ -5,6 +5,7 @@ import { HStack } from '../layout/HStack';
 import { VStack } from '../layout/VStack';
 
 const NumericInputWrapper = styled(HStack)`
+
   background: var(--color-input-background);
   border-color: var(--color-border);
   border-radius: var(--border-radius);
@@ -15,6 +16,7 @@ const NumericInputWrapper = styled(HStack)`
 `;
 
 const NumericInputInput = styled.input`
+
   background: transparent;
   border: none;
   color: inherit;
@@ -30,6 +32,7 @@ const NumericInputInput = styled.input`
 `;
 
 const NumericInputButton = styled.button`
+
   background: transparent;
   border: none;
   color: inherit;
@@ -42,6 +45,7 @@ const NumericInputButton = styled.button`
 `;
 
 const NumericInputButtonWrapper = styled(VStack)`
+
   height: 100%;
   position: absolute;
   right: 0;

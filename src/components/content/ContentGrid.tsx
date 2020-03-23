@@ -5,6 +5,7 @@ export interface ContentGridProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const ContentGrid = styled.div<ContentGridProps>`
+
   display: flex;
   flex-wrap: wrap;
   margin-left: ${props => props.gutter / -2}px;

@@ -1,6 +1,7 @@
 import { styled } from 'linaria/react';
 
 export const TextInput = styled.input`
+
   background: var(--color-input-background);
   border-color: var(--color-border);
   border-radius: var(--border-radius);

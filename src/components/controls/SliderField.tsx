@@ -45,7 +45,7 @@ export const SliderField: React.FC<SliderFieldProps> = ({
               onChange(parseInt(event.currentTarget.value));
             }
           }}
-          style={{ width: 50 }}
+          style={{ width: 50, }}
           type="number"
           value={value}
         />

@@ -6,6 +6,7 @@ export interface ContentContainerProps
 }
 
 export const ContentContainer = styled.div<ContentContainerProps>`
+
   margin-left: ${props => props.margin}px;
   margin-right: ${props => props.margin}px;
 `;

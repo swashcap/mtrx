@@ -18,6 +18,7 @@ export interface CanvasProps extends HStackProps {
 }
 
 const CanvasWrapper = styled(HStack)`
+
   background: var(--color-background);
   color: var(--color-text);
 `;

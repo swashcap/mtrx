@@ -6,6 +6,7 @@ import { ContentGridColumn } from './ContentGridColumn';
 import { ContentGrid } from './ContentGrid';
 
 const ContentTextParagraph = styled.p`
+
   color: black;
   font: 14px/20px sans-serif;
   margin: 0;
@@ -26,7 +27,7 @@ export const ContentText: React.FC<ContentTextProps> = ({
       <ContentGridColumn
         columns={12}
         gutter={gutter}
-        style={{ height: gutter }}
+        style={{ height: gutter, }}
       />
       <ContentGridColumn columns={12} gutter={gutter}>
         <ContentTextParagraph>

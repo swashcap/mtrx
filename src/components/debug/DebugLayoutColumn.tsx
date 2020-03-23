@@ -10,6 +10,7 @@ export interface DebugLayoutColumnProps
 }
 
 export const DebugLayoutColumnWrapper = styled.div<DebugLayoutColumnProps>`
+
   flex: 1;
   padding-right: ${props => props.pad}px;
   padding-left: ${props => props.pad}px;
@@ -24,7 +25,7 @@ export const DebugLayoutColumn: React.FC<DebugLayoutColumnProps> = ({
     <VStack
       align="center"
       style={{
-        background: 'rgba(255, 0, 0, .15)',
+        background: 'rgba(255, 0, 0, 0.15)',
         height: '100%',
       }}
     >

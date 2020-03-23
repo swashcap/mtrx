@@ -1,6 +1,7 @@
 import { styled } from 'linaria/react';
 
 export const SliderInput = styled.input`
+
   -webkit-appearance: none;
   background: transparent;
   cursor: pointer;
@@ -16,10 +17,12 @@ export const SliderInput = styled.input`
     margin-top: calc(-0.5rem + 1px);
     width: 1rem;
   }
+
   &:focus::-webkit-slider-thumb,
   &:hover::-webkit-slider-thumb {
     background: var(--color-focus);
   }
+
   &:active::-webkit-slider-thumb {
     background: var(--color-active);
   }

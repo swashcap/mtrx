@@ -9,7 +9,9 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export const Text = styled.span<TextProps>`
-  color: ${({ color }) =>
+
+  color:
+    ${({ color }) =>
     color === 'secondary' ? 'var(--color-text-light)' : 'inherit'};
   display: inline-block;
   font-size: var(--font-regular-size);

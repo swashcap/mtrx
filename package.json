@@ -23,6 +23,8 @@
     "mini-css-extract-plugin": "^0.9.0",
     "prettier": "^1.19.1",
     "style-loader": "^1.1.3",
+    "stylelint": "^13.2.1",
+    "stylelint-config-standard": "^20.0.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
     "webpack": "^4.42.0",
@@ -41,6 +43,7 @@
     "clean": "rm -rf dist",
     "dev": "webpack-dev-server",
     "format": "prettier --write '*.js' 'src/**/*'",
+    "lint": "stylelint 'src/**/*.{ts,tsx}'",
     "start": "yarn dev"
   }
 }

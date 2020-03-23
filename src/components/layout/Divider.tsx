@@ -4,6 +4,7 @@ import { styled } from 'linaria/react';
 import { Box, BoxProps } from './Box';
 
 const HR = styled.hr`
+
   border-color: var(--color-border);
   border-style: solid;
   border-width: 1px 0 0;

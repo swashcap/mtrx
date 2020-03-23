@@ -6,17 +6,21 @@ import { Box, BoxProps } from './Box';
 import { SpacingUnit } from '../../types';
 
 const StyledBaseStack = styled(Box)`
+
   display: flex;
 
   &.align-center {
     justify-content: center;
   }
+
   &.align-end {
     justify-content: flex-end;
   }
+
   &.column {
     flex-direction: column;
   }
+
   &.wrap {
     flex-wrap: wrap;
   }
