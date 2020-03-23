@@ -1,19 +1,17 @@
 import React from 'react';
+import { cx } from 'linaria';
 import { render } from 'react-dom';
-import { styled } from 'linaria/react';
 
 import '../node_modules/normalize.css/normalize.css';
 import { globalStyles } from './globalStyles';
+import { App } from './components/App';
+import { light } from './themes/light';
 
 const appEl = document.getElementById('app');
 
-const App = styled.p`
-  color: red;
-`;
-
 render(
-  <div className={globalStyles}>
-    <App>Hello!</App>
+  <div className={cx(globalStyles, light)}>
+    <App />
   </div>,
   appEl
 );

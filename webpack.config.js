@@ -12,20 +12,15 @@ module.exports = {
     hot: true,
     port: 3000,
   },
-  devtool: 'eval-source-map',
-  entry: './src/app.tsx',
+  devtool: 'inline-source-map',
+  entry: './src/index.tsx',
   mode: isProdEnv ? 'production' : 'development',
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: [
-          {
-            loader: MiniCSSExtractPlugin.loader,
-            options: {
-              hmr: !isProdEnv,
-            },
-          },
+          isProdEnv ? MiniCSSExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -38,12 +33,6 @@ module.exports = {
         exclude: /node_modules/,
         test: /\.tsx?$/,
         use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-            },
-          },
           {
             loader: 'babel-loader',
             options: {

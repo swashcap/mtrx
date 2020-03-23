@@ -14,8 +14,14 @@ export const globalStyles = css`
 
     html {
       font-family: 'Inconsolata', Consolas, monospace;
-      font-size: 112.5%;
-      line-height: 1.25;
+      font-size: 87.5%; /* 14px */
+      line-height: 1.286; /* 18px */
+    }
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      width: 100%;
     }
   }
 `;
