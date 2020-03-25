@@ -4,24 +4,26 @@ import { StyledComponentProps } from '../../types';
 
 const BaseButton = styled.button`
 
-  background: black;
+  background: var(--color-background);
   border-radius: 1px;
-  border: 2px solid transparent;
-  color: white;
+  border-width: var(--border-width);
+  border-style: solid;
+  border-color: transparent;
+  color: var(--color-text);
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
   font-weight: 700;
   margin: 0;
-  padding: 0.5rem 0.75rem;
+  padding: var(--spacing-100) var(--spacing-200);
 
   &:focus,
   &:hover {
-    background: var(--color-focus);
+    color: var(--color-focus);
   }
 
   &:active {
-    background: var(--color-active);
+    color: var(--color-active);
   }
 `;
 
