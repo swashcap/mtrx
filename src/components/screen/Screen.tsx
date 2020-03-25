@@ -12,11 +12,15 @@ const ScreenWrapper = styled(Box)<BoxProps & { width: number }>`
   width: ${(props) => props.width}px;
 `;
 
-export type ScreenProps = BoxProps & ScreenType;
+export type ScreenProps = BoxProps &
+  ScreenType & {
+    debug?: React.ReactNode;
+  };
 
 export const Screen: React.FC<ScreenProps> = ({
   box,
   children,
+  debug,
   height,
   name,
   width,
@@ -30,7 +34,11 @@ export const Screen: React.FC<ScreenProps> = ({
     width={width}
     {...rest}
   >
-    <ScreenViewport children={children} style={{ height, width, }} />
+    <ScreenViewport
+      children={children}
+      debug={debug}
+      style={{ height, width, }}
+    />
     <ScreenDescriptor
       name={name}
       size={

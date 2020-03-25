@@ -57,9 +57,21 @@ export const Canvas: React.FC<CanvasProps> = ({
         grid: { columns: 0, gutter: 0, margin: 0 },
       };
       const { columns, gutter, margin } = breakpoint.grid;
+      const debug = [
+        showGrid && <DebugGrid grid={gridSize} />,
+        showLayout && (
+          <DebugLayout
+            columns={columns}
+            gutter={gutter}
+            margin={margin}
+            width={width}
+          />
+        ),
+      ];
 
       return (
         <Screen
+          debug={debug}
           height={height}
           key={`${height}${width}`}
           name={name}
@@ -70,15 +82,6 @@ export const Canvas: React.FC<CanvasProps> = ({
           )}
           {content === 'text' && (
             <ContentText gutter={gutter} margin={margin} />
-          )}
-          {showGrid && <DebugGrid grid={gridSize} />}
-          {showLayout && (
-            <DebugLayout
-              columns={columns}
-              gutter={gutter}
-              margin={margin}
-              width={width}
-            />
           )}
         </Screen>
       );
