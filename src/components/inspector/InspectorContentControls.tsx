@@ -23,7 +23,7 @@ export const InspectorContentControls: React.FC<InspectorContentControlsProps> =
       <RadioField
         inputProps={{
           checked: content === 'block',
-          onChange: event => {
+          onChange: (event) => {
             if (event.currentTarget.checked) {
               onContentChange('block');
             }
@@ -36,7 +36,7 @@ export const InspectorContentControls: React.FC<InspectorContentControlsProps> =
       <RadioField
         inputProps={{
           checked: content === 'text',
-          onChange: event => {
+          onChange: (event) => {
             if (event.currentTarget.checked) {
               onContentChange('text');
             }

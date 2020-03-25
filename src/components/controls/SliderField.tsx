@@ -30,7 +30,7 @@ export const SliderField: React.FC<SliderFieldProps> = ({
       {!!label && <Label>{label}</Label>}
       <HStack gap={2}>
         <SliderInput
-          onChange={event => {
+          onChange={(event) => {
             if (onChange) {
               onChange(parseInt(event.currentTarget.value));
             }
@@ -40,7 +40,7 @@ export const SliderField: React.FC<SliderFieldProps> = ({
           {...inputProps}
         />
         <TextInput
-          onChange={event => {
+          onChange={(event) => {
             if (onChange) {
               onChange(parseInt(event.currentTarget.value));
             }

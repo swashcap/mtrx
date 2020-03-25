@@ -13,7 +13,7 @@ export const DebugGrid = styled.div<DebugGridProps>`
       rgba(255, 0, 0, 0) 1px
     ),
     linear-gradient(90deg, rgba(255, 0, 0) 0, rgba(255, 0, 0, 0) 1px);
-  background-size: ${props => props.grid}px ${props => props.grid}px;
+  background-size: ${(props) => props.grid}px ${(props) => props.grid}px;
   background-position: 0 1px;
   height: 100%;
   left: 0;

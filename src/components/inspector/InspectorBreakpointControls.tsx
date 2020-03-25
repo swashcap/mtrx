@@ -27,7 +27,7 @@ export const InspectorBreakpointControls: React.FC<InspectorBreakpointControlsPr
         <InspectorBreakpoint
           breakpoint={breakpoints[key]}
           name={key}
-          onBreakpointChange={breakpoint =>
+          onBreakpointChange={(breakpoint) =>
             onBreakpointChange({
               breakpoint,
               key,

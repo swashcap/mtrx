@@ -9,7 +9,7 @@ import { ScreenViewport } from './ScreenViewport';
 
 const ScreenWrapper = styled(Box)<BoxProps & { width: number }>`
 
-  width: ${props => props.width}px;
+  width: ${(props) => props.width}px;
 `;
 
 export type ScreenProps = BoxProps & ScreenType;

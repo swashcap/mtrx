@@ -14,7 +14,7 @@ const HR = styled.hr`
 
 export type DividerProps = Omit<BoxProps, 'children'>;
 
-export const Divider: React.FC<DividerProps> = props => (
+export const Divider: React.FC<DividerProps> = (props) => (
   <Box {...props}>
     <HR />
   </Box>

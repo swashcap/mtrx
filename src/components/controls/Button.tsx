@@ -27,6 +27,6 @@ const BaseButton = styled.button`
   }
 `;
 
-export const Button: React.FC<StyledComponentProps<
-  typeof BaseButton
->> = props => <BaseButton type="button" {...props} />;
+export const Button: React.FC<StyledComponentProps<typeof BaseButton>> = (
+  props
+) => <BaseButton type="button" {...props} />;

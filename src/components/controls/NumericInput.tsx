@@ -74,7 +74,7 @@ export const NumericInput: React.FC<NumericInputProps> = ({
 }) => (
   <NumericInputWrapper gap={0}>
     <NumericInputInput
-      onChange={event => {
+      onChange={(event) => {
         if (onChange) {
           onChange(parseInt(event.currentTarget.value));
         }

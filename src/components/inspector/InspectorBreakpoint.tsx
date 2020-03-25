@@ -33,7 +33,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           inputProps={{
             max: 1000,
             min: 0,
-            onChange: value => onBreakpointChange({ grid, width: value }),
+            onChange: (value) => onBreakpointChange({ grid, width: value }),
             value: width,
           }}
           label="Width"
@@ -42,7 +42,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Margin"
             inputProps={{
-              onChange: margin =>
+              onChange: (margin) =>
                 onBreakpointChange({
                   grid: {
                     ...grid,
@@ -59,7 +59,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Gutter"
             inputProps={{
-              onChange: gutter =>
+              onChange: (gutter) =>
                 onBreakpointChange({
                   grid: {
                     ...grid,
@@ -76,7 +76,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Columns"
             inputProps={{
-              onChange: columns =>
+              onChange: (columns) =>
                 onBreakpointChange({
                   grid: {
                     ...grid,

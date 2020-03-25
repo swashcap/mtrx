@@ -29,31 +29,31 @@ export const App = () => {
         sidebar={
           <Inspector
             breakpoints={breakpoints}
-            onBreakpointChange={payload =>
+            onBreakpointChange={(payload) =>
               breakpointsDispatch({
                 payload,
                 type: 'BREAKPOINTS_SET',
               })
             }
-            onContentChange={payload =>
+            onContentChange={(payload) =>
               settingsDispatch({
                 payload,
                 type: 'SETTINGS_SET_CONTENT',
               })
             }
-            onGridSizeChange={payload =>
+            onGridSizeChange={(payload) =>
               settingsDispatch({
                 payload,
                 type: 'SETTINGS_SET_GRID_SIZE',
               })
             }
-            onShowGridChange={payload =>
+            onShowGridChange={(payload) =>
               settingsDispatch({
                 payload,
                 type: 'SETTINGS_SET_SHOW_GRID',
               })
             }
-            onShowLayoutChange={payload =>
+            onShowLayoutChange={(payload) =>
               settingsDispatch({
                 payload,
                 type: 'SETTINGS_SET_SHOW_LAYOUT',

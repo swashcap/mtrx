@@ -31,7 +31,7 @@ export const InspectorDebugControls: React.FC<InspectorDebugControlsProps> = ({
           inputProps={{
             checked: showGrid,
             name: 'showGrid',
-            onChange: event => {
+            onChange: (event) => {
               onShowGridChange(event.target.checked);
             },
             value: '1',
@@ -42,7 +42,7 @@ export const InspectorDebugControls: React.FC<InspectorDebugControlsProps> = ({
           inputProps={{
             checked: showLayout,
             name: 'showLayout',
-            onChange: event => {
+            onChange: (event) => {
               onShowLayoutChange(event.target.checked);
             },
             value: '1',
