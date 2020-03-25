@@ -53,7 +53,7 @@ module.exports = {
     chunkFilename: isProdEnv ? '[id].[chunkhash].chunk.js' : '[id].chunk.js',
     filename: isProdEnv ? '[name].[contenthash].bundle.js' : '[name].bundle.js',
     path: path.join(__dirname, 'docs'),
-    publicPath: isProdEnv ? 'https://swashcap.github.io/mtrx/docs/' : '',
+    publicPath: isProdEnv ? 'https://swashcap.github.io/mtrx/' : '',
   },
   plugins: [
     new MiniCSSExtractPlugin({
