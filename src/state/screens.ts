@@ -13,13 +13,18 @@ export const screens: ScreensState = [
     width: 320,
   },
   {
+    height: 640,
+    name: 'Galaxy S7',
+    width: 360,
+  },
+  {
     height: 667,
-    name: 'iPhone',
+    name: 'iPhone 8',
     width: 375,
   },
   {
     height: 896,
-    name: 'Galaxy S10',
+    name: 'iPhone 11, Galaxy S10',
     width: 414,
   },
   {

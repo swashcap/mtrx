@@ -22,6 +22,7 @@ export type BreakpointsState = {
   items: Breakpoint[];
   names: string[];
 };
+
 export const INITIAL_STATE: BreakpointsState = {
   items: [
     {
@@ -43,7 +44,7 @@ export const INITIAL_STATE: BreakpointsState = {
       grid: {
         columns: 4,
         gutter: 16,
-        margin: 20,
+        margin: 16,
       },
       ui: {
         collapsed: true,
