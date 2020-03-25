@@ -17,11 +17,7 @@ const AppLayoutSidebar = styled.div`
 
   height: 100vh;
   overflow-y: scroll;
-  width: 240px;
-
-  @media (min-width: 30em) {
-    width: 300px;
-  }
+  width: 15em;
 `;
 
 export interface AppLayoutProps {

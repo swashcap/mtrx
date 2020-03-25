@@ -61,9 +61,6 @@ export const App = () => {
             }
             className={dark}
             settings={settings}
-            style={{
-              width: 300,
-            }}
           />
         }
       />
