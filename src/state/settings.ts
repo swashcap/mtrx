@@ -32,35 +32,48 @@ export const INITIAL_STATE: SettingsState = {
   gridSize: 20,
 } as const;
 
+export const LOCAL_STORAGE_KEY = 'settings';
+
 const reducer: React.Reducer<SettingsState, SettingsAction> = (
   state,
   action
 ) => {
+  let nextState: SettingsState;
+
   if (action.type === 'SETTINGS_SET_CONTENT') {
-    return {
+    nextState = {
       ...state,
       content: action.payload,
     };
   } else if (action.type === 'SETTINGS_SET_GRID_SIZE') {
-    return {
+    nextState = {
       ...state,
       gridSize: action.payload,
     };
   } else if (action.type === 'SETTINGS_SET_SHOW_GRID') {
-    return {
+    nextState = {
       ...state,
       showGrid: action.payload,
     };
   } else if (action.type === 'SETTINGS_SET_SHOW_LAYOUT') {
-    return {
+    nextState = {
       ...state,
       showLayout: action.payload,
     };
+  } else {
+    return state;
   }
 
-  return state;
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(nextState));
+
+  return nextState;
 };
 
 export const useSettingsReducer = () => {
-  return useReducer(reducer, INITIAL_STATE);
+  return useReducer(
+    reducer,
+    localStorage.getItem(LOCAL_STORAGE_KEY)
+      ? JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) as string)
+      : INITIAL_STATE
+  );
 };

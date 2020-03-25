@@ -13,8 +13,18 @@ export interface Breakpoint {
 
 export type BreakpointsState = Record<string, Breakpoint>;
 
+const KEYS = [
+  'X-Small',
+  'Small',
+  'Medium',
+  'Large',
+  'X-Large',
+  'XX-Large',
+  '3X-Large',
+] as const;
+
 export const INITIAL_STATE: BreakpointsState = {
-  'X-Small': {
+  [KEYS[0]]: {
     grid: {
       columns: 2,
       gutter: 16,
@@ -22,7 +32,7 @@ export const INITIAL_STATE: BreakpointsState = {
     },
     width: 0,
   },
-  Small: {
+  [KEYS[1]]: {
     grid: {
       columns: 4,
       gutter: 16,
@@ -30,7 +40,7 @@ export const INITIAL_STATE: BreakpointsState = {
     },
     width: 360,
   },
-  Medium: {
+  [KEYS[2]]: {
     grid: {
       columns: 6,
       gutter: 16,
@@ -38,17 +48,13 @@ export const INITIAL_STATE: BreakpointsState = {
     },
     width: 480,
   },
-  Large: {
-    grid: {
-      columns: 6,
-      gutter: 20,
-      margin: 24,
-    },
-    width: 680,
-  },
 };
 
 export type BreakpointsAction =
+  | {
+      payload: null;
+      type: 'BREAKPOINTS_ADD';
+    }
   | {
       payload: {
         breakpoint: Breakpoint;
@@ -63,28 +69,62 @@ export type BreakpointsAction =
       type: 'BREAKPOINTS_DELETE';
     };
 
+const LOCAL_STORAGE_KEY = 'breakpoints';
+
 const reducer: React.Reducer<BreakpointsState, BreakpointsAction> = (
   state,
   action
 ) => {
-  if (action.type == 'BREAKPOINTS_SET') {
-    return Object.keys(state).reduce<BreakpointsState>((newState, key) => {
+  let nextState: BreakpointsState;
+
+  if (action.type === 'BREAKPOINTS_ADD') {
+    const stateKeysLength = Object.keys(state).length;
+
+    if (stateKeysLength === Object.keys(KEYS).length) {
+      return state;
+    }
+
+    const stateLastItem = state[KEYS[stateKeysLength - 1]];
+
+    nextState = {
+      ...state,
+      [KEYS[stateKeysLength]]: {
+        grid: {
+          columns: stateLastItem.grid.columns,
+          gutter: stateLastItem.grid.gutter,
+          margin: stateLastItem.grid.margin,
+        },
+        width: stateLastItem.width,
+      },
+    };
+  } else if (action.type == 'BREAKPOINTS_SET') {
+    nextState = Object.keys(state).reduce<BreakpointsState>((newState, key) => {
       newState[key] =
         key === action.payload.key ? action.payload.breakpoint : state[key];
 
       return newState;
     }, {});
   } else if (action.type === 'BREAKPOINTS_DELETE') {
-    return Object.keys(state).reduce<BreakpointsState>((newState, key) => {
+    nextState = Object.keys(state).reduce<BreakpointsState>((newState, key) => {
       if (key !== action.payload.key) {
         newState[key] = state[key];
       }
 
       return newState;
     }, {});
+  } else {
+    return state;
   }
 
-  return state;
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(nextState));
+
+  return nextState;
 };
 
-export const useBreakpointsReducer = () => useReducer(reducer, INITIAL_STATE);
+export const useBreakpointsReducer = () =>
+  useReducer(
+    reducer,
+    localStorage.getItem(LOCAL_STORAGE_KEY)
+      ? JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) as string)
+      : INITIAL_STATE
+  );
