@@ -12,6 +12,7 @@ export interface InspectorBreakpointProps extends VStackProps {
   breakpoint: Breakpoint;
   onBreakpointChange: (breakpoint: Breakpoint) => any;
   onBreakpointCollapseChange: (collapsed: boolean) => any;
+  onBreakpointRemove?: () => any;
   name: string;
 }
 
@@ -25,6 +26,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
   name,
   onBreakpointChange,
   onBreakpointCollapseChange,
+  onBreakpointRemove,
   ...rest
 }) => {
   return (
@@ -106,7 +108,15 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
             }}
           />
         </HStack>
-        <Button>Remove</Button>
+        {!!onBreakpointRemove && (
+          <Button
+            aria-label="Remove breakpoint"
+            onClick={onBreakpointRemove}
+            style={{ textAlign: 'right', }}
+          >
+            ✕
+          </Button>
+        )}
       </VStack>
     </Collapse>
   );

@@ -98,7 +98,7 @@ const reducer: React.Reducer<BreakpointsState, BreakpointsAction> = (
   state,
   action
 ) => {
-  let nextState: BreakpointsState;
+  let nextState: BreakpointsState | undefined;
 
   if (action.type === 'BREAKPOINTS_ADD') {
     const lastBreakpoint = state.items[state.items.length - 1];
@@ -125,9 +125,25 @@ const reducer: React.Reducer<BreakpointsState, BreakpointsAction> = (
   } else if (action.type == 'BREAKPOINTS_SET') {
     nextState = {
       ...state,
-      items: state.items.map((breakpoint, index) =>
-        index === action.payload.index ? action.payload.breakpoint : breakpoint
-      ),
+      items: state.items.map((breakpoint, index) => {
+        if (index === action.payload.index) {
+          return action.payload.breakpoint;
+        } else if (index > action.payload.index) {
+          const min = action.payload.breakpoint.width.value;
+
+          return {
+            ...breakpoint,
+            width: {
+              max: 1000,
+              min,
+              value:
+                breakpoint.width.value > min ? breakpoint.width.value : min,
+            },
+          };
+        }
+
+        return breakpoint;
+      }),
     };
   } else if (action.type === 'BREAKPOINTS_SET_COLLAPSED') {
     nextState = {
@@ -145,17 +161,20 @@ const reducer: React.Reducer<BreakpointsState, BreakpointsAction> = (
       ),
     };
   } else if (action.type === 'BREAKPOINTS_DELETE') {
-    nextState = {
-      ...state,
-      items: state.items.filter((_, index) => index !== action.payload.index),
-    };
-  } else {
-    return state;
+    if (action.payload.index !== 0) {
+      nextState = {
+        ...state,
+        items: state.items.filter((_, index) => index !== action.payload.index),
+      };
+    }
   }
 
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(nextState));
+  if (nextState) {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(nextState));
+    return nextState;
+  }
 
-  return nextState;
+  return state;
 };
 
 export const useBreakpointsReducer = () =>

@@ -21,6 +21,7 @@ export interface InspectorProps extends VStackProps {
     collapsed: boolean;
     index: number;
   }) => any;
+  onBreakpointRemove: (payload: { index: number }) => any;
   onContentChange: (value: 'block' | 'text') => any;
   onGridSizeChange: (value: number) => any;
   onShowGridChange: (value: boolean) => any;
@@ -41,6 +42,7 @@ export const Inspector: React.FC<InspectorProps> = ({
   onBreakpointAdd,
   onBreakpointChange,
   onBreakpointCollapseChange,
+  onBreakpointRemove,
   onContentChange,
   onGridSizeChange,
   onShowGridChange,
@@ -60,6 +62,7 @@ export const Inspector: React.FC<InspectorProps> = ({
         onBreakpointAdd={onBreakpointAdd}
         onBreakpointChange={onBreakpointChange}
         onBreakpointCollapseChange={onBreakpointCollapseChange}
+        onBreakpointRemove={onBreakpointRemove}
       />
       <Divider />
       <InspectorDebugControls

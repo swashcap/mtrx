@@ -47,6 +47,12 @@ export const App = () => {
                 type: 'BREAKPOINTS_SET_COLLAPSED',
               })
             }
+            onBreakpointRemove={(payload) => {
+              breakpointsDispatch({
+                payload,
+                type: 'BREAKPOINTS_DELETE',
+              });
+            }}
             onContentChange={(payload) =>
               settingsDispatch({
                 payload,

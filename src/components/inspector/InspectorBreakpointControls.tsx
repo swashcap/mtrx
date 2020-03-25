@@ -21,6 +21,7 @@ export interface InspectorBreakpointControlsProps
     collapsed: boolean;
     index: number;
   }) => any;
+  onBreakpointRemove: (payload: { index: number }) => any;
 }
 
 export const InspectorBreakpointControls: React.FC<InspectorBreakpointControlsProps> = ({
@@ -28,6 +29,7 @@ export const InspectorBreakpointControls: React.FC<InspectorBreakpointControlsPr
   onBreakpointAdd,
   onBreakpointChange,
   onBreakpointCollapseChange,
+  onBreakpointRemove,
   ...rest
 }) => (
   <InspectorFormSection heading="Breakpoints" {...rest}>
@@ -51,6 +53,9 @@ export const InspectorBreakpointControls: React.FC<InspectorBreakpointControlsPr
                 collapsed,
                 index,
               })
+            }
+            onBreakpointRemove={
+              index !== 0 ? () => onBreakpointRemove({ index }) : undefined
             }
           />
         </Fragment>
