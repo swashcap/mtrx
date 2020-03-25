@@ -1,3 +1,5 @@
 **/*.html
 **/*.js
 **/*.json
+package.json
+.stylelintrc.json
