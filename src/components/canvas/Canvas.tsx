@@ -39,8 +39,8 @@ export const Canvas: React.FC<CanvasProps> = ({
     {...rest}
   >
     {screens.map(({ height, name, width }) => {
-      const items = Object.keys(breakpoints)
-        .map((key) => breakpoints[key])
+      const items = breakpoints.items
+        .concat()
         .sort(({ width: a }, { width: b }) => {
           if (a > b) {
             return 1;
@@ -52,7 +52,7 @@ export const Canvas: React.FC<CanvasProps> = ({
         })
         .reverse();
       const breakpoint = items.find(
-        (breakpoint) => breakpoint.width < width
+        (breakpoint) => breakpoint.width.value < width
       ) ?? {
         grid: { columns: 0, gutter: 0, margin: 0 },
       };

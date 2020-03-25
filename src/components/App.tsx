@@ -29,10 +29,22 @@ export const App = () => {
         sidebar={
           <Inspector
             breakpoints={breakpoints}
+            onBreakpointAdd={() =>
+              breakpointsDispatch({
+                payload: null,
+                type: 'BREAKPOINTS_ADD',
+              })
+            }
             onBreakpointChange={(payload) =>
               breakpointsDispatch({
                 payload,
                 type: 'BREAKPOINTS_SET',
+              })
+            }
+            onBreakpointCollapseChange={(payload) =>
+              breakpointsDispatch({
+                payload,
+                type: 'BREAKPOINTS_SET_COLLAPSED',
               })
             }
             onContentChange={(payload) =>

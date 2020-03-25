@@ -12,7 +12,15 @@ import { VStack, VStackProps } from '../layout/VStack';
 
 export interface InspectorProps extends VStackProps {
   breakpoints: BreakpointsState;
-  onBreakpointChange: (payload: { breakpoint: Breakpoint; key: string }) => any;
+  onBreakpointAdd: () => any;
+  onBreakpointChange: (payload: {
+    breakpoint: Breakpoint;
+    index: number;
+  }) => any;
+  onBreakpointCollapseChange: (payload: {
+    collapsed: boolean;
+    index: number;
+  }) => any;
   onContentChange: (value: 'block' | 'text') => any;
   onGridSizeChange: (value: number) => any;
   onShowGridChange: (value: boolean) => any;
@@ -30,7 +38,9 @@ const InspectorWrapper = styled(VStack)`
 
 export const Inspector: React.FC<InspectorProps> = ({
   breakpoints,
+  onBreakpointAdd,
   onBreakpointChange,
+  onBreakpointCollapseChange,
   onContentChange,
   onGridSizeChange,
   onShowGridChange,
@@ -47,7 +57,9 @@ export const Inspector: React.FC<InspectorProps> = ({
       <Divider />
       <InspectorBreakpointControls
         breakpoints={breakpoints}
+        onBreakpointAdd={onBreakpointAdd}
         onBreakpointChange={onBreakpointChange}
+        onBreakpointCollapseChange={onBreakpointCollapseChange}
       />
       <Divider />
       <InspectorDebugControls

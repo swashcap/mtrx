@@ -8,46 +8,62 @@ export interface Breakpoint {
     /** Size in pixels */
     margin: number;
   };
-  width: number;
+  ui: {
+    collapsed: boolean;
+  };
+  width: {
+    max: number;
+    min: number;
+    value: number;
+  };
 }
 
-export type BreakpointsState = Record<string, Breakpoint>;
-
-const KEYS = [
-  'X-Small',
-  'Small',
-  'Medium',
-  'Large',
-  'X-Large',
-  'XX-Large',
-  '3X-Large',
-] as const;
-
+export type BreakpointsState = {
+  items: Breakpoint[];
+  names: string[];
+};
 export const INITIAL_STATE: BreakpointsState = {
-  [KEYS[0]]: {
-    grid: {
-      columns: 2,
-      gutter: 16,
-      margin: 16,
+  items: [
+    {
+      grid: {
+        columns: 2,
+        gutter: 16,
+        margin: 16,
+      },
+      ui: {
+        collapsed: true,
+      },
+      width: {
+        max: 1000,
+        min: 0,
+        value: 0,
+      },
     },
-    width: 0,
-  },
-  [KEYS[1]]: {
-    grid: {
-      columns: 4,
-      gutter: 16,
-      margin: 20,
+    {
+      grid: {
+        columns: 4,
+        gutter: 16,
+        margin: 20,
+      },
+      ui: {
+        collapsed: true,
+      },
+      width: {
+        max: 1000,
+        min: 0,
+        value: 360,
+      },
     },
-    width: 360,
-  },
-  [KEYS[2]]: {
-    grid: {
-      columns: 6,
-      gutter: 16,
-      margin: 24,
-    },
-    width: 480,
-  },
+  ],
+  names: [
+    'X-Small',
+    'Small',
+    'Medium',
+    'Large',
+    'X-Large',
+    'XX-Large',
+    '3X-Large',
+  ],
 };
 
 export type BreakpointsAction =
@@ -58,13 +74,20 @@ export type BreakpointsAction =
   | {
       payload: {
         breakpoint: Breakpoint;
-        key: string;
+        index: number;
       };
       type: 'BREAKPOINTS_SET';
     }
   | {
       payload: {
-        key: string;
+        collapsed: boolean;
+        index: number;
+      };
+      type: 'BREAKPOINTS_SET_COLLAPSED';
+    }
+  | {
+      payload: {
+        index: number;
       };
       type: 'BREAKPOINTS_DELETE';
     };
@@ -78,40 +101,54 @@ const reducer: React.Reducer<BreakpointsState, BreakpointsAction> = (
   let nextState: BreakpointsState;
 
   if (action.type === 'BREAKPOINTS_ADD') {
-    const stateKeysLength = Object.keys(state).length;
-
-    if (stateKeysLength === Object.keys(KEYS).length) {
-      return state;
-    }
-
-    const stateLastItem = state[KEYS[stateKeysLength - 1]];
+    const lastBreakpoint = state.items[state.items.length - 1];
 
     nextState = {
       ...state,
-      [KEYS[stateKeysLength]]: {
-        grid: {
-          columns: stateLastItem.grid.columns,
-          gutter: stateLastItem.grid.gutter,
-          margin: stateLastItem.grid.margin,
+      items: [
+        ...state.items,
+        {
+          grid: {
+            ...lastBreakpoint.grid,
+          },
+          ui: {
+            collapsed: false,
+          },
+          width: {
+            min: lastBreakpoint.width.value,
+            max: 1000,
+            value: lastBreakpoint.width.value,
+          },
         },
-        width: stateLastItem.width,
-      },
+      ],
     };
   } else if (action.type == 'BREAKPOINTS_SET') {
-    nextState = Object.keys(state).reduce<BreakpointsState>((newState, key) => {
-      newState[key] =
-        key === action.payload.key ? action.payload.breakpoint : state[key];
-
-      return newState;
-    }, {});
+    nextState = {
+      ...state,
+      items: state.items.map((breakpoint, index) =>
+        index === action.payload.index ? action.payload.breakpoint : breakpoint
+      ),
+    };
+  } else if (action.type === 'BREAKPOINTS_SET_COLLAPSED') {
+    nextState = {
+      ...state,
+      items: state.items.map((breakpoint, index) =>
+        index === action.payload.index
+          ? {
+              ...breakpoint,
+              ui: {
+                ...breakpoint.ui,
+                collapsed: action.payload.collapsed,
+              },
+            }
+          : breakpoint
+      ),
+    };
   } else if (action.type === 'BREAKPOINTS_DELETE') {
-    nextState = Object.keys(state).reduce<BreakpointsState>((newState, key) => {
-      if (key !== action.payload.key) {
-        newState[key] = state[key];
-      }
-
-      return newState;
-    }, {});
+    nextState = {
+      ...state,
+      items: state.items.filter((_, index) => index !== action.payload.index),
+    };
   } else {
     return state;
   }

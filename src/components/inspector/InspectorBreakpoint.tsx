@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Breakpoint } from '../../state/breakpoints';
 import { Collapse } from '../utils/Collapse';
@@ -6,35 +6,46 @@ import { HStack } from '../layout/HStack';
 import { NumericField } from '../controls/NumericField';
 import { SliderField } from '../controls/SliderField';
 import { VStack, VStackProps } from '../layout/VStack';
+import { Button } from '../controls/Button';
 
 export interface InspectorBreakpointProps extends VStackProps {
   breakpoint: Breakpoint;
   onBreakpointChange: (breakpoint: Breakpoint) => any;
+  onBreakpointCollapseChange: (collapsed: boolean) => any;
   name: string;
 }
 
 export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
-  breakpoint: { grid, width },
+  breakpoint,
+  breakpoint: {
+    grid,
+    ui: { collapsed },
+    width,
+  },
   name,
   onBreakpointChange,
+  onBreakpointCollapseChange,
   ...rest
 }) => {
-  const [gridCollapsed, setGridCollapsed] = useState(true);
-
   return (
     <Collapse
-      collapsed={gridCollapsed}
+      collapsed={collapsed}
       id={`collapse-breakpoint-${name}`}
-      onChange={setGridCollapsed}
+      onChange={() => onBreakpointCollapseChange(!collapsed)}
       name={name}
     >
       <VStack gap={2} {...rest}>
         <SliderField
           inputProps={{
-            max: 1000,
-            min: 0,
-            onChange: (value) => onBreakpointChange({ grid, width: value }),
-            value: width,
+            ...width,
+            onChange: (value) =>
+              onBreakpointChange({
+                ...breakpoint,
+                width: {
+                  ...width,
+                  value,
+                },
+              }),
           }}
           label="Width"
         />
@@ -42,13 +53,14 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Margin"
             inputProps={{
+              min: 0,
               onChange: (margin) =>
                 onBreakpointChange({
+                  ...breakpoint,
                   grid: {
                     ...grid,
                     margin,
                   },
-                  width,
                 }),
               value: grid.margin,
             }}
@@ -59,13 +71,14 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Gutter"
             inputProps={{
+              min: 0,
               onChange: (gutter) =>
                 onBreakpointChange({
+                  ...breakpoint,
                   grid: {
                     ...grid,
                     gutter,
                   },
-                  width,
                 }),
               value: grid.gutter,
             }}
@@ -78,11 +91,11 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
             inputProps={{
               onChange: (columns) =>
                 onBreakpointChange({
+                  ...breakpoint,
                   grid: {
                     ...grid,
                     columns,
                   },
-                  width,
                 }),
               min: 1,
               max: 12,
@@ -93,6 +106,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
             }}
           />
         </HStack>
+        <Button>Remove</Button>
       </VStack>
     </Collapse>
   );
