@@ -1,16 +1,10 @@
 import React from 'react';
 
 import { ContentContainer } from './ContentContainer';
-import { styled } from 'linaria/react';
-import { ContentGridColumn } from './ContentGridColumn';
 import { ContentGrid } from './ContentGrid';
-
-const ContentTextParagraph = styled.p`
-
-  color: black;
-  font: 14px/20px sans-serif;
-  margin: 0;
-`;
+import { ContentGridColumn } from './ContentGridColumn';
+import { ContentTextParagraph } from './ContentTextParagraph';
+import { ContentTextHeading } from './ContentTextHeading';
 
 export interface ContentTextProps extends React.HTMLAttributes<HTMLDivElement> {
   margin: number;
@@ -30,6 +24,17 @@ export const ContentText: React.FC<ContentTextProps> = ({
         style={{ height: gutter, }}
       />
       <ContentGridColumn columns={12} gutter={gutter}>
+        <ContentTextHeading>Lorem ipsum</ContentTextHeading>
+        <ContentTextHeading as="h2">Dolor sit amet</ContentTextHeading>
+        <ContentTextHeading as="h3">
+          Consectetur adipiscing elit, sed do
+        </ContentTextHeading>
+        <ContentTextHeading as="h4">
+          Eiusmod tempor incididunt ut labore et dolore
+        </ContentTextHeading>
+        <ContentTextHeading as="h5">
+          Magna aliqua ut enim ad minim veniam
+        </ContentTextHeading>
         <ContentTextParagraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
