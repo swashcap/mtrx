@@ -170,6 +170,38 @@ const BaseBox = styled.div`
     padding-right: var(--spacing-300);
   }
 
+  &.pb0 {
+    padding-bottom: 0;
+  }
+
+  &.pb1 {
+    padding-bottom: var(--spacing-100);
+  }
+
+  &.pb2 {
+    padding-bottom: var(--spacing-200);
+  }
+
+  &.pb3 {
+    padding-bottom: var(--spacing-300);
+  }
+
+  &.pt0 {
+    padding-top: 0;
+  }
+
+  &.pt1 {
+    padding-top: var(--spacing-100);
+  }
+
+  &.pt2 {
+    padding-top: var(--spacing-200);
+  }
+
+  &.pt3 {
+    padding-top: var(--spacing-300);
+  }
+
   /* Width */
   &.w1 {
     width: var(--spacing-100);
@@ -201,7 +233,9 @@ export const Box: React.FC<BoxProps> = ({ box, className, ...rest }) => (
       box?.mh && `mh${box.mh}`,
       box?.mv && `mv${box.mv}`,
       box?.pa && `pa${box.pa}`,
+      box?.pb && `pb${box.pb}`,
       box?.ph && `ph${box.ph}`,
+      box?.pt && `pt${box.pt}`,
       box?.pv && `pv${box.pv}`,
       box?.w && `w${box.w}`,
       className

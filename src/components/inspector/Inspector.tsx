@@ -6,8 +6,9 @@ import { Divider } from '../layout/Divider';
 import { InspectorBreakpointControls } from './InspectorBreakpointControls';
 import { InspectorContentControls } from './InspectorContentControls';
 import { InspectorDebugControls } from './InspectorDebugControls';
-import { VStack, VStackProps } from '../layout/VStack';
+import { InspectorInfo } from './InspectorInfo';
 import { SettingsState } from '../../state/settings';
+import { VStack, VStackProps } from '../layout/VStack';
 
 export interface InspectorProps extends VStackProps {
   breakpoints: BreakpointsState;
@@ -38,21 +39,28 @@ export const Inspector: React.FC<InspectorProps> = ({
   ...rest
 }) => (
   <InspectorWrapper box={{ pv: 2 }} gap={2} {...rest}>
-    <InspectorContentControls
-      onContentChange={onContentChange}
-      settings={settings}
-    />
-    <Divider />
-    <InspectorBreakpointControls
-      breakpoints={breakpoints}
-      onBreakpointChange={onBreakpointChange}
-    />
-    <Divider />
-    <InspectorDebugControls
-      onGridSizeChange={onGridSizeChange}
-      onShowGridChange={onShowGridChange}
-      onShowLayoutChange={onShowLayoutChange}
-      settings={settings}
-    />
+    <VStack gap={2}>
+      <InspectorContentControls
+        onContentChange={onContentChange}
+        settings={settings}
+      />
+      <Divider />
+      <InspectorBreakpointControls
+        breakpoints={breakpoints}
+        onBreakpointChange={onBreakpointChange}
+      />
+      <Divider />
+      <InspectorDebugControls
+        onGridSizeChange={onGridSizeChange}
+        onShowGridChange={onShowGridChange}
+        onShowLayoutChange={onShowLayoutChange}
+        settings={settings}
+      />
+    </VStack>
+    <div style={{ flex: 2, }} />
+    <VStack gap={2}>
+      <Divider />
+      <InspectorInfo />
+    </VStack>
   </InspectorWrapper>
 );
