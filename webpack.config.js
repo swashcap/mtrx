@@ -50,16 +50,26 @@ module.exports = {
     ],
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    chunkFilename: isProdEnv ? '[id].[chunkhash].chunk.js' : '[id].chunk.js',
+    filename: isProdEnv ? '[name].[contenthash].bundle.js' : '[name].bundle.js',
+    path: path.join(__dirname, 'docs'),
+    publicPath: isProdEnv ? 'https://swashcap.github.io/mtrx/docs/' : '',
   },
   plugins: [
-    new MiniCSSExtractPlugin(),
-    new ForkTSCheckerWebpackPlugin(),
+    new MiniCSSExtractPlugin({
+      chunkFilename: isProdEnv
+        ? '[id].[chunkhash].chunk.css'
+        : '[id].chunk.css',
+      filename: isProdEnv
+        ? '[name].[contenthash].bundle.css'
+        : '[name].bundle.css',
+    }),
+    !isProdEnv && new ForkTSCheckerWebpackPlugin(),
     new HTMLWebpackPlugin({
       title: pkg.name,
       template: path.join(__dirname, 'src/index.html'),
     }),
-  ],
+  ].filter(Boolean),
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
