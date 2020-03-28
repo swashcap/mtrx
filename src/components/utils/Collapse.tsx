@@ -2,6 +2,8 @@ import React from 'react';
 import { cx } from 'linaria';
 import { styled } from 'linaria/react';
 
+import { inputFocusStyles } from '../../styles/inputFocus';
+
 export const CollapseButton = styled.button`
 
   background: transparent;
@@ -22,6 +24,10 @@ export const CollapseButton = styled.button`
     position: absolute;
     right: 0;
     top: 0.5rem;
+  }
+
+  &:focus {
+    ${inputFocusStyles}
   }
 
   /* Collapsed */

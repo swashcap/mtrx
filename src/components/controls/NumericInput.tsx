@@ -3,6 +3,7 @@ import { styled } from 'linaria/react';
 
 import { HStack } from '../layout/HStack';
 import { VStack } from '../layout/VStack';
+import { inputFocusStyles } from '../../styles/inputFocus';
 
 const NumericInputWrapper = styled(HStack)`
 
@@ -29,6 +30,10 @@ const NumericInputInput = styled.input`
     appearance: none;
     margin: 0;
   }
+
+  &:focus {
+    ${inputFocusStyles}
+  }
 `;
 
 const NumericInputButton = styled.button`
@@ -42,6 +47,10 @@ const NumericInputButton = styled.button`
   margin: 0;
   padding: 0 0.25rem;
   text-align: center;
+
+  &:focus {
+    ${inputFocusStyles}
+  }
 `;
 
 const NumericInputButtonWrapper = styled(VStack)`

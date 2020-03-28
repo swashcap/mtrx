@@ -1,6 +1,8 @@
 import React from 'react';
 import { styled } from 'linaria/react';
+
 import { StyledComponentProps } from '../../types';
+import { inputFocusStyles } from '../../styles/inputFocus';
 
 const BaseButton = styled.button`
 
@@ -16,6 +18,10 @@ const BaseButton = styled.button`
   font-weight: 700;
   margin: 0;
   padding: var(--spacing-100) var(--spacing-200);
+
+  &:focus {
+    ${inputFocusStyles}
+  }
 
   &:focus,
   &:hover {

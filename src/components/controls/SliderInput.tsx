@@ -1,5 +1,7 @@
 import { styled } from 'linaria/react';
 
+import { inputFocusStyles } from '../../styles/inputFocus';
+
 export const SliderInput = styled.input`
 
   -webkit-appearance: none;
@@ -16,6 +18,10 @@ export const SliderInput = styled.input`
     height: 1rem;
     margin-top: calc(-0.5rem + 1px);
     width: 1rem;
+  }
+
+  &:focus {
+    ${inputFocusStyles}
   }
 
   &:focus::-webkit-slider-thumb,

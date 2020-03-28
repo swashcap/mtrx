@@ -6,6 +6,7 @@ export const light = css`
   --color-background: #efefef;
   --color-background-secondary: #dadada;
   --color-border: #ccc;
+  --color-input-focus: rgba(255, 187, 0, 0.9);
   --color-input-background: #f6f6f6;
   --color-text-light: #555;
   --color-text: #222;

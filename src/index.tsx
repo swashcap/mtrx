@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 
 import '../node_modules/normalize.css/normalize.css';
 import { Root } from './components/Root';
-import { globalStyles } from './globalStyles';
+import { globalStyles } from './styles/global';
 import { light } from './themes/light';
 
 const appEl = document.getElementById('app');

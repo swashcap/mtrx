@@ -1,5 +1,7 @@
 import { styled } from 'linaria/react';
 
+import { inputFocusStyles } from '../../styles/inputFocus';
+
 export const TextInput = styled.input`
 
   background: var(--color-input-background);
@@ -19,5 +21,9 @@ export const TextInput = styled.input`
   &::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
+  }
+
+  &:focus {
+    ${inputFocusStyles}
   }
 `;

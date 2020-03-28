@@ -1,6 +1,8 @@
 import React from 'react';
 import { styled } from 'linaria/react';
 
+import { inputFocusStyles } from '../../styles/inputFocus';
+
 const RadioFieldLabel = styled.label`
 
   display: block;
@@ -24,6 +26,10 @@ const RadioFieldIndicator = styled.span`
   cursor: pointer;
   display: block;
   padding: var(--spacing-100) var(--spacing-200);
+
+  input:focus ~ & {
+    ${inputFocusStyles}
+  }
 
   input:checked ~ & {
     color: var(--color-text);

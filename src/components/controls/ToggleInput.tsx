@@ -1,6 +1,8 @@
 import React from 'react';
 import { styled } from 'linaria/react';
 
+import { inputFocusStyles } from '../../styles/inputFocus';
+
 const ToggleInputInput = styled.input`
 
   opacity: 0;
@@ -21,6 +23,10 @@ const ToggleInputIndicator = styled.span`
   position: relative;
   user-select: none;
   width: calc(2em + 2 * var(--border-width));
+
+  input:focus ~ & {
+    ${inputFocusStyles}
+  }
 
   input:focus ~ &::after,
   &:focus::after,
