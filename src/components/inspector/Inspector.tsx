@@ -33,7 +33,7 @@ const InspectorWrapper = styled(VStack)`
 
   background: var(--color-background);
   color: var(--color-text);
-  height: 100%;
+  min-height: 100vh;
   overflow-y: scroll;
 `;
 

@@ -44,7 +44,7 @@
     "react-dom": "^16.13.1"
   },
   "scripts": {
-    "build": "tsc --noEmit && NODE_ENV=production webpack",
+    "build": "yarn clean && tsc --noEmit && NODE_ENV=production webpack",
     "clean": "rm -rf docs",
     "dev": "webpack-dev-server",
     "format": "prettier --write '*.js' 'src/**/*'",
