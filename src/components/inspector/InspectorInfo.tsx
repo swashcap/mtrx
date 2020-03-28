@@ -6,6 +6,7 @@ import { Text } from '../text/Text';
 import { VStack } from '../layout/VStack';
 import { HStack, HStackProps } from '../layout/HStack';
 import { Button } from '../controls/Button';
+import { reset } from '../../state/reset';
 
 export type InspectorInfoProps = HStackProps;
 
@@ -26,7 +27,7 @@ export const InspectorInfo: React.FC<InspectorInfoProps> = ({
       </Caption>
     </VStack>
     <div style={{ flex: 2, }} />
-    <Button onClick={() => localStorage.clear()} title="Reset state">
+    <Button onClick={reset} title="Reset state">
       Reset
     </Button>
   </HStack>

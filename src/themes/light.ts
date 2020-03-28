@@ -2,6 +2,7 @@ import { css } from 'linaria';
 
 export const light = css`
 
+  --color-alert: red;
   --color-background: #efefef;
   --color-background-secondary: #dadada;
   --color-border: #ccc;
