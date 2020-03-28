@@ -5,6 +5,7 @@ import { ContentContainer } from '../content/ContentContainer';
 import { ContentGrid } from '../content/ContentGrid';
 import { DebugLayoutColumn } from './DebugLayoutColumn';
 import { HStack } from '../layout/HStack';
+import { getColumnWidth } from '../utils/getColumnWidth';
 import { styled } from 'linaria/react';
 
 const DebugLayoutOuter = styled.div`
@@ -40,7 +41,11 @@ export const DebugLayout: React.FC<DebugLayoutProps> = ({
   ...rest
 }) => {
   const pad = gutter / 2;
-  const column = width - margin * 2 - gutter * (columns - 1);
+  const columnWidth = getColumnWidth(width, {
+    columns,
+    gutter,
+    margin,
+  });
 
   return (
     <DebugLayoutOuter {...rest}>
@@ -48,7 +53,7 @@ export const DebugLayout: React.FC<DebugLayoutProps> = ({
         <DebugLayoutInner gutter={gutter}>
           {Array.from(new Array(columns)).map((_, i) => (
             <DebugLayoutColumn key={i} pad={pad}>
-              {column}
+              {columnWidth}
             </DebugLayoutColumn>
           ))}
         </DebugLayoutInner>
