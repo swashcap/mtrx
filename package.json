@@ -12,15 +12,18 @@
     "@babel/preset-typescript": "^7.9.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^25.1.4",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
     "@types/vfile-message": "^2.0.0",
+    "babel-jest": "^25.2.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^3.4.2",
     "fork-ts-checker-webpack-plugin": "^4.1.1",
     "html-webpack-plugin": "^4.0.1",
     "husky": "^4.2.3",
+    "jest": "^25.2.3",
     "lint-staged": "^10.0.9",
     "mini-css-extract-plugin": "^0.9.0",
     "prettier": "^2.0.2",
@@ -46,6 +49,7 @@
     "dev": "webpack-dev-server",
     "format": "prettier --write '*.js' 'src/**/*'",
     "lint": "stylelint 'src/**/*.{ts,tsx}'",
-    "start": "yarn dev"
+    "start": "yarn dev",
+    "test": "jest 'src/.*\\.test\\.tsx?'"
   }
 }
