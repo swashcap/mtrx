@@ -27,7 +27,7 @@ export const INITIAL_STATE: BreakpointsState = {
   items: [
     {
       grid: {
-        columns: 2,
+        columns: 4,
         gutter: 16,
         margin: 16,
       },
@@ -42,7 +42,7 @@ export const INITIAL_STATE: BreakpointsState = {
     },
     {
       grid: {
-        columns: 4,
+        columns: 6,
         gutter: 16,
         margin: 16,
       },
@@ -52,7 +52,22 @@ export const INITIAL_STATE: BreakpointsState = {
       width: {
         max: 1000,
         min: 0,
-        value: 360,
+        value: 576,
+      },
+    },
+    {
+      grid: {
+        columns: 12,
+        gutter: 16,
+        margin: 32,
+      },
+      ui: {
+        collapsed: true,
+      },
+      width: {
+        max: 1000,
+        min: 0,
+        value: 768,
       },
     },
   ],
