@@ -38,6 +38,11 @@ export const screens: ScreensState = [
     width: 540,
   },
   {
+    height: 960,
+    name: 'Nexus 7',
+    width: 600,
+  },
+  {
     height: 1024,
     name: 'iPad',
     width: 768,
