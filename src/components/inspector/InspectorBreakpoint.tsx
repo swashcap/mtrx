@@ -1,19 +1,20 @@
 import React from 'react';
 
 import { Breakpoint } from '../../state/breakpoints';
+import { Button } from '../controls/Button';
 import { Collapse } from '../utils/Collapse';
 import { HStack } from '../layout/HStack';
 import { NumericField } from '../controls/NumericField';
 import { SliderField } from '../controls/SliderField';
 import { VStack, VStackProps } from '../layout/VStack';
-import { Button } from '../controls/Button';
 
 export interface InspectorBreakpointProps extends VStackProps {
   breakpoint: Breakpoint;
+  hideWidth?: boolean;
+  name: string;
   onBreakpointChange: (breakpoint: Breakpoint) => any;
   onBreakpointCollapseChange: (collapsed: boolean) => any;
   onBreakpointRemove?: () => any;
-  name: string;
 }
 
 export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
@@ -23,6 +24,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
     ui: { collapsed },
     width,
   },
+  hideWidth,
   name,
   onBreakpointChange,
   onBreakpointCollapseChange,
@@ -37,20 +39,22 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
       name={name}
     >
       <VStack gap={2} {...rest}>
-        <SliderField
-          inputProps={{
-            ...width,
-            onChange: (value) =>
-              onBreakpointChange({
-                ...breakpoint,
-                width: {
-                  ...width,
-                  value,
-                },
-              }),
-          }}
-          label="Width"
-        />
+        {!hideWidth && (
+          <SliderField
+            inputProps={{
+              ...width,
+              onChange: (value) =>
+                onBreakpointChange({
+                  ...breakpoint,
+                  width: {
+                    ...width,
+                    value,
+                  },
+                }),
+            }}
+            label="Width"
+          />
+        )}
         <HStack gap={2} wrap>
           <NumericField
             label="Margin"

@@ -41,6 +41,7 @@ export const InspectorBreakpointControls: React.FC<InspectorBreakpointControlsPr
           {index !== 0 && <Divider />}
           <InspectorBreakpoint
             breakpoint={breakpoint}
+            hideWidth={index === 0}
             name={name}
             onBreakpointChange={(breakpoint) =>
               onBreakpointChange({
