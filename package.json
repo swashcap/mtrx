@@ -19,6 +19,7 @@
     "babel-jest": "^25.2.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "clean-css-loader": "^2.0.0",
     "css-loader": "^3.4.2",
     "fork-ts-checker-webpack-plugin": "^4.1.1",
     "html-webpack-plugin": "^4.0.1",

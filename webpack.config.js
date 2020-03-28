@@ -12,7 +12,7 @@ module.exports = {
     hot: true,
     port: 3000,
   },
-  devtool: 'inline-source-map',
+  devtool: isProdEnv ? '' : 'inline-source-map',
   entry: './src/index.tsx',
   mode: isProdEnv ? 'production' : 'development',
   module: {
@@ -27,7 +27,14 @@ module.exports = {
               sourceMap: !isProdEnv,
             },
           },
-        ],
+          isProdEnv && {
+            loader: 'clean-css-loader',
+            options: {
+              level: 2,
+              sourceMap: false,
+            },
+          },
+        ].filter(Boolean),
       },
       {
         exclude: /node_modules/,
