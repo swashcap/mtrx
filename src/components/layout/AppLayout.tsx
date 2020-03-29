@@ -1,6 +1,8 @@
 import React from 'react';
 import { styled } from 'linaria/react';
 
+import { SkipLink } from '../utils/SkipLink';
+
 const AppLayoutWrapper = styled.div`
 
   display: flex;
@@ -27,7 +29,8 @@ export interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ content, sidebar }) => (
   <AppLayoutWrapper>
-    <AppLayoutContent>{content}</AppLayoutContent>
+    <SkipLink href="#content">Skip to content</SkipLink>
+    <AppLayoutContent id="content">{content}</AppLayoutContent>
     <AppLayoutSidebar>{sidebar}</AppLayoutSidebar>
   </AppLayoutWrapper>
 );
