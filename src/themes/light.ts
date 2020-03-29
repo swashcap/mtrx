@@ -14,7 +14,7 @@ export const light = css`
   --color-active: #1a237e;
   --border-width: 1px;
   --border-radius: 1px;
-  --font-small-size: 85.71%; /* 14px */
+  --font-small-size: 85.7143%; /* 12px */
   --font-small-line-height: 1.5; /* 18px */
   --font-regular-size: 100%;
   --font-regular-line-height: inherit;

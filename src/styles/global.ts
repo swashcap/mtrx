@@ -16,7 +16,7 @@ export const globalStyles = css`
     html {
       font-family: 'Inconsolata', Consolas, monospace;
       font-size: 87.5%; /* 14px */
-      line-height: 1.286; /* 18px */
+      line-height: 1.285714; /* 18px */
     }
 
     html,
