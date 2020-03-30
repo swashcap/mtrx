@@ -3,9 +3,13 @@ import { css } from 'linaria';
 export const light = css`
 
   --color-alert: red;
-  --color-background: #efefef;
   --color-background-secondary: #dadada;
+  --color-background: #efefef;
   --color-border: #ccc;
+  --color-button-primary-background: var(--color-background);
+  --color-button-primary-color: var(--color-text);
+  --color-button-secondary-background: var(--color-background);
+  --color-button-secondary-color: var(--color-text-light);
   --color-input-focus: rgba(255, 187, 0, 0.9);
   --color-input-background: #f6f6f6;
   --color-text-light: #555;
