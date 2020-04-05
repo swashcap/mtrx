@@ -13,6 +13,10 @@ const StyledBaseStack = styled(Box)`
     justify-content: center;
   }
 
+  &.align-between {
+    justify-content: space-between;
+  }
+
   &.align-end {
     justify-content: flex-end;
   }
@@ -27,7 +31,7 @@ const StyledBaseStack = styled(Box)`
 `;
 
 export interface BaseStackProps extends BoxProps {
-  align?: 'start' | 'center' | 'end';
+  align?: 'start' | 'center' | 'end' | 'between';
   direction: 'column' | 'row';
   gap: SpacingUnit;
   wrap: boolean;
@@ -56,6 +60,7 @@ export const BaseStack: React.FC<BaseStackProps> = ({
       className={cx(
         align === 'center' && 'align-center',
         align === 'end' && 'align-end',
+        align === 'between' && 'align-between',
         direction === 'column' && 'column',
         wrap && 'wrap',
         className

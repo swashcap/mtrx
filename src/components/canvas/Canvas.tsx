@@ -69,7 +69,11 @@ export const Canvas: React.FC<CanvasProps> = ({
               <ContentBlock columns={columns} gutter={gutter} margin={margin} />
             )}
             {content === 'text' && (
-              <ContentText gutter={gutter} margin={margin} />
+              <ContentText
+                gutter={gutter}
+                margin={margin}
+                text={breakpoint.text}
+              />
             )}
           </Screen>
         );

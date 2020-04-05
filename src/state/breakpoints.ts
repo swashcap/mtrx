@@ -1,5 +1,22 @@
 import React, { useReducer } from 'react';
 
+export interface BreakpointTextSetting {
+  fontSize: number;
+  lineHeight: number;
+}
+
+export type BreakpointTextName =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'body'
+  | 'caption';
+
+export type BreakpointText = [BreakpointTextName, BreakpointTextSetting][];
+
 export interface Breakpoint {
   grid: {
     columns: number;
@@ -8,6 +25,7 @@ export interface Breakpoint {
     /** Size in pixels */
     margin: number;
   };
+  text: BreakpointText;
   ui: {
     collapsed: boolean;
   };
@@ -31,6 +49,64 @@ export const INITIAL_STATE: BreakpointsState = {
         gutter: 16,
         margin: 16,
       },
+      text: [
+        [
+          'h1',
+          {
+            fontSize: 28,
+            lineHeight: 32,
+          },
+        ],
+        [
+          'h2',
+          {
+            fontSize: 24,
+            lineHeight: 28,
+          },
+        ],
+        [
+          'h3',
+          {
+            fontSize: 21,
+            lineHeight: 24,
+          },
+        ],
+        [
+          'h4',
+          {
+            fontSize: 18,
+            lineHeight: 24,
+          },
+        ],
+        [
+          'h5',
+          {
+            fontSize: 16,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'h6',
+          {
+            fontSize: 14,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'body',
+          {
+            fontSize: 14,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'caption',
+          {
+            fontSize: 12,
+            lineHeight: 16,
+          },
+        ],
+      ],
       ui: {
         collapsed: true,
       },
@@ -46,6 +122,64 @@ export const INITIAL_STATE: BreakpointsState = {
         gutter: 16,
         margin: 16,
       },
+      text: [
+        [
+          'h1',
+          {
+            fontSize: 28,
+            lineHeight: 32,
+          },
+        ],
+        [
+          'h2',
+          {
+            fontSize: 24,
+            lineHeight: 28,
+          },
+        ],
+        [
+          'h3',
+          {
+            fontSize: 21,
+            lineHeight: 24,
+          },
+        ],
+        [
+          'h4',
+          {
+            fontSize: 18,
+            lineHeight: 24,
+          },
+        ],
+        [
+          'h5',
+          {
+            fontSize: 16,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'h6',
+          {
+            fontSize: 14,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'body',
+          {
+            fontSize: 14,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'caption',
+          {
+            fontSize: 12,
+            lineHeight: 16,
+          },
+        ],
+      ],
       ui: {
         collapsed: true,
       },
@@ -61,6 +195,64 @@ export const INITIAL_STATE: BreakpointsState = {
         gutter: 16,
         margin: 32,
       },
+      text: [
+        [
+          'h1',
+          {
+            fontSize: 28,
+            lineHeight: 32,
+          },
+        ],
+        [
+          'h2',
+          {
+            fontSize: 24,
+            lineHeight: 28,
+          },
+        ],
+        [
+          'h3',
+          {
+            fontSize: 21,
+            lineHeight: 24,
+          },
+        ],
+        [
+          'h4',
+          {
+            fontSize: 18,
+            lineHeight: 24,
+          },
+        ],
+        [
+          'h5',
+          {
+            fontSize: 16,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'h6',
+          {
+            fontSize: 14,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'body',
+          {
+            fontSize: 14,
+            lineHeight: 20,
+          },
+        ],
+        [
+          'caption',
+          {
+            fontSize: 12,
+            lineHeight: 16,
+          },
+        ],
+      ],
       ui: {
         collapsed: true,
       },
@@ -127,6 +319,7 @@ const reducer: React.Reducer<BreakpointsState, BreakpointsAction> = (
           grid: {
             ...lastBreakpoint.grid,
           },
+          text: lastBreakpoint.text,
           ui: {
             collapsed: false,
           },

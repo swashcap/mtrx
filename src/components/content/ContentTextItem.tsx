@@ -1,6 +1,6 @@
 import { styled } from 'linaria/react';
 
-export const ContentTextHeading = styled.h1`
+export const ContentTextItem = styled.span`
 
   font-weight: 400;
   font-family: sans-serif;

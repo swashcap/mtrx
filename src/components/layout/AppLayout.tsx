@@ -1,7 +1,10 @@
 import React from 'react';
+import { render } from 'react-dom';
 import { styled } from 'linaria/react';
 
 import { SkipLink } from '../utils/SkipLink';
+import { ModalContext } from '../modal/ModalContext';
+import { useModal } from '../modal/ModalContext';
 
 const AppLayoutWrapper = styled.div`
 
@@ -27,10 +30,43 @@ export interface AppLayoutProps {
   sidebar: React.ReactNode;
 }
 
-export const AppLayout: React.FC<AppLayoutProps> = ({ content, sidebar }) => (
-  <AppLayoutWrapper>
-    <SkipLink href="#content">Skip to content</SkipLink>
-    <AppLayoutContent id="content">{content}</AppLayoutContent>
-    <AppLayoutSidebar>{sidebar}</AppLayoutSidebar>
-  </AppLayoutWrapper>
-);
+export class AppLayout extends React.PureComponent<AppLayoutProps> {
+  private _queuedModal: React.ReactElement | null = null;
+  private _modalRoot: HTMLDivElement | null = null;
+
+  setModal = (element: React.ReactElement | null) => {
+    if (this._modalRoot) {
+      render(element === null ? <></> : element, this._modalRoot);
+    } else {
+      this._queuedModal = element;
+    }
+  };
+
+  private _setModalRoot = (element: HTMLDivElement) => {
+    this._modalRoot = element;
+
+    if (this._queuedModal) {
+      render(this._queuedModal, this._modalRoot);
+      this._queuedModal = null;
+    }
+  };
+
+  render() {
+    const { content, sidebar } = this.props;
+
+    return (
+      <ModalContext.Provider
+        value={{
+          setModal: this.setModal,
+        }}
+      >
+        <AppLayoutWrapper>
+          <SkipLink href="#content">Skip to content</SkipLink>
+          <AppLayoutContent id="content">{content}</AppLayoutContent>
+          <AppLayoutSidebar>{sidebar}</AppLayoutSidebar>
+        </AppLayoutWrapper>
+        <div key="modal-root" ref={this._setModalRoot} />
+      </ModalContext.Provider>
+    );
+  }
+}

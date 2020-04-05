@@ -106,6 +106,7 @@ export const NumericInput: React.FC<NumericInputProps> = ({
             }
           }
         }}
+        tabIndex={-1}
         type="button"
       >
         <span aria-label="Increase">▲</span>
@@ -120,6 +121,7 @@ export const NumericInput: React.FC<NumericInputProps> = ({
             }
           }
         }}
+        tabIndex={-1}
         type="button"
       >
         <span aria-label="Decrease">▼</span>

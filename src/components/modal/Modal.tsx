@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import FocusTrap from 'focus-trap-react';
 
 import { ModalBody } from './ModalBody';
@@ -21,29 +21,32 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   const { setModal } = useModal();
 
-  useEffect(() => {
-    // Modals must be in the `App` tree to get CSS variables styling.
-    setModal(
-      visible ? (
-        <FocusTrap>
-          <div>
-            <ModalMask />
-            <ModalContent onClick={onClose}>
-              <ModalBody
-                heading={heading}
-                onClick={(event) => {
-                  event.stopPropagation();
-                }}
-                onClose={onClose}
-              >
-                {children}
-              </ModalBody>
-            </ModalContent>
-          </div>
-        </FocusTrap>
-      ) : null
-    );
-  }, [visible]);
+  /**
+   * Modals' elements must exist under the `App` component's element
+   * to use linaria's CSS variable styling. `setModal` acts similar to
+   * `ReactDOM.createPortal` by accepting a component and mounting it
+   * elsewhere.
+   */
+  setModal(
+    visible ? (
+      <FocusTrap>
+        <div>
+          <ModalMask />
+          <ModalContent onClick={onClose}>
+            <ModalBody
+              heading={heading}
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
+              onClose={onClose}
+            >
+              {children}
+            </ModalBody>
+          </ModalContent>
+        </div>
+      </FocusTrap>
+    ) : null
+  );
 
   return null;
 };

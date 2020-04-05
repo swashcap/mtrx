@@ -9,6 +9,64 @@ const mockBreakpoints: BreakpointsState = {
         gutter: 16,
         margin: 16,
       },
+      text: [
+        [
+          'h1',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h2',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h3',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h4',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h5',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h6',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'body',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'caption',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+      ],
       ui: {
         collapsed: false,
       },
@@ -24,6 +82,64 @@ const mockBreakpoints: BreakpointsState = {
         gutter: 16,
         margin: 16,
       },
+      text: [
+        [
+          'h1',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h2',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h3',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h4',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h5',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'h6',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'body',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+        [
+          'caption',
+          {
+            fontSize: 0,
+            lineHeight: 0,
+          },
+        ],
+      ],
       ui: {
         collapsed: false,
       },

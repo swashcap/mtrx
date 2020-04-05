@@ -1,16 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 
-export const createModalControls = () => {
-  const [modal, setModal] = useState<React.ReactElement | null>(null);
+export interface ModalControls {
+  setModal(element: React.ReactElement | null): any;
+}
 
-  return {
-    modal,
-    setModal,
-  };
-};
-
-export const ModalContext = createContext<
-  ReturnType<typeof createModalControls>
->((null as unknown) as ReturnType<typeof createModalControls>);
+export const ModalContext = createContext<ModalControls>(
+  (null as unknown) as ModalControls
+);
 
 export const useModal = () => useContext(ModalContext);

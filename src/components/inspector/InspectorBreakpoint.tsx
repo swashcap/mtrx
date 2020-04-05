@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Breakpoint } from '../../state/breakpoints';
 import { Button } from '../controls/Button';
 import { Collapse } from '../utils/Collapse';
 import { HStack } from '../layout/HStack';
+import { Modal } from '../modal/Modal';
 import { NumericField } from '../controls/NumericField';
 import { SliderField } from '../controls/SliderField';
 import { VStack, VStackProps } from '../layout/VStack';
+import { TextControlForm } from '../text-controls/TextControlForm';
 
 export interface InspectorBreakpointProps extends VStackProps {
   breakpoint: Breakpoint;
@@ -21,6 +23,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
   breakpoint,
   breakpoint: {
     grid,
+    text,
     ui: { collapsed },
     width,
   },
@@ -31,6 +34,9 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
   onBreakpointRemove,
   ...rest
 }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [initialBreakpointText] = useState(text);
+
   return (
     <Collapse
       collapsed={collapsed}
@@ -112,16 +118,49 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
             }}
           />
         </HStack>
-        {!!onBreakpointRemove && (
-          <Button
-            aria-label="Remove breakpoint"
-            onClick={onBreakpointRemove}
-            style={{ textAlign: 'right', }}
-          >
-            ✕
+        <HStack align="between" gap={0}>
+          <Button aria-label="Text size" onClick={() => setShowModal(true)}>
+            Text sizes
           </Button>
-        )}
+          {!!onBreakpointRemove && (
+            <Button aria-label="Remove breakpoint" onClick={onBreakpointRemove}>
+              ✕
+            </Button>
+          )}
+        </HStack>
       </VStack>
+
+      {/* Text control form in a modal */}
+      <Modal
+        heading="Text sizes"
+        onClose={() => setShowModal(false)}
+        visible={showModal}
+      >
+        <TextControlForm
+          text={text}
+          onReset={(event) => {
+            event.preventDefault();
+            setShowModal(false);
+            onBreakpointChange({
+              ...breakpoint,
+              text: initialBreakpointText,
+            });
+          }}
+          onSubmit={(event) => {
+            event.preventDefault();
+            setShowModal(false);
+          }}
+          onTextSettingChange={(name, setting) => {
+            onBreakpointChange({
+              ...breakpoint,
+              text: breakpoint.text.map(([textName, textSetting]) => [
+                textName,
+                name === textName ? setting : textSetting,
+              ]),
+            });
+          }}
+        />
+      </Modal>
     </Collapse>
   );
 };
