@@ -18,6 +18,7 @@ const NumericInputWrapper = styled(HStack)`
 
 const NumericInputInput = styled.input`
 
+  -moz-appearance: textfield;
   background: transparent;
   border: none;
   color: inherit;
