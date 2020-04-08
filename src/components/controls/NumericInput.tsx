@@ -4,6 +4,8 @@ import { styled } from 'linaria/react';
 import { HStack } from '../layout/HStack';
 import { VStack } from '../layout/VStack';
 import { inputFocusStyles } from '../../styles/inputFocus';
+import { DecrementIcon } from '../icon/DecrementIcon';
+import { IncrementIcon } from '../icon/IncrementIcon';
 
 const NumericInputWrapper = styled(HStack)`
 
@@ -39,18 +41,34 @@ const NumericInputInput = styled.input`
 
 const NumericInputButton = styled.button`
 
+  align-items: center;
   background: transparent;
   border: none;
   color: inherit;
   cursor: pointer;
+  display: flex;
   flex: 1;
   font-size: 50%;
+  justify-content: center;
   margin: 0;
   padding: 0 0.25rem;
   text-align: center;
 
+  & path {
+    fill: var(--color-button-secondary-color);
+  }
+
   &:focus {
     ${inputFocusStyles}
+  }
+
+  &:focus path,
+  &:hover path {
+    fill: var(--color-focus);
+  }
+
+  &:active path {
+    color: var(--color-active);
   }
 `;
 
@@ -110,7 +128,7 @@ export const NumericInput: React.FC<NumericInputProps> = ({
         tabIndex={-1}
         type="button"
       >
-        <span aria-label="Increase">▲</span>
+        <IncrementIcon />
       </NumericInputButton>
       <NumericInputButton
         onClick={() => {
@@ -125,7 +143,7 @@ export const NumericInput: React.FC<NumericInputProps> = ({
         tabIndex={-1}
         type="button"
       >
-        <span aria-label="Decrease">▼</span>
+        <DecrementIcon />
       </NumericInputButton>
     </NumericInputButtonWrapper>
   </NumericInputWrapper>

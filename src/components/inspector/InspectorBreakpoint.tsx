@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 
 import { Breakpoint } from '../../state/breakpoints';
 import { Button } from '../controls/Button';
+import { CloseIcon } from '../icon/CloseIcon';
 import { Collapse } from '../utils/Collapse';
 import { HStack } from '../layout/HStack';
+import { IconButton } from '../controls/IconButton';
 import { Modal } from '../modal/Modal';
 import { NumericField } from '../controls/NumericField';
 import { SliderField } from '../controls/SliderField';
-import { VStack, VStackProps } from '../layout/VStack';
 import { TextControlForm } from '../text-controls/TextControlForm';
+import { VStack, VStackProps } from '../layout/VStack';
 
 export interface InspectorBreakpointProps extends VStackProps {
   breakpoint: Breakpoint;
@@ -123,9 +125,12 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
             Text sizes
           </Button>
           {!!onBreakpointRemove && (
-            <Button aria-label="Remove breakpoint" onClick={onBreakpointRemove}>
-              ✕
-            </Button>
+            <IconButton
+              aria-label="Remove breakpoint"
+              onClick={onBreakpointRemove}
+            >
+              <CloseIcon />
+            </IconButton>
           )}
         </HStack>
       </VStack>

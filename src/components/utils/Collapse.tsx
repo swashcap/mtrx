@@ -2,6 +2,9 @@ import React from 'react';
 import { cx } from 'linaria';
 import { styled } from 'linaria/react';
 
+import { DownIcon } from '../icon/DownIcon';
+import { HStack } from '../layout/HStack';
+import { UpIcon } from '../icon/UpIcon';
 import { inputFocusStyles } from '../../styles/inputFocus';
 
 export const CollapseButton = styled.button`
@@ -18,21 +21,21 @@ export const CollapseButton = styled.button`
   text-align: left;
   width: 100%;
 
-  &::after {
-    content: '▾';
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 0.5rem;
-  }
-
   &:focus {
     ${inputFocusStyles}
   }
 
-  /* Collapsed */
-  &.collapsed::after {
-    content: '▸';
+  & path {
+    fill: var(--color-button-secondary-color);
+  }
+
+  &:focus path,
+  &:hover path {
+    fill: var(--color-focus);
+  }
+
+  &:active path {
+    color: var(--color-active);
   }
 `;
 
@@ -64,7 +67,10 @@ export const Collapse: React.FC<CollapseProps> = ({
         onChange && onChange(!collapsed);
       }}
     >
-      {name}
+      <HStack align="between" gap={0}>
+        <span>{name}</span>
+        {collapsed ? <UpIcon /> : <DownIcon />}
+      </HStack>
     </CollapseButton>
     <div id={id}>{!collapsed && children}</div>
   </div>

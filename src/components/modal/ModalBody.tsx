@@ -1,12 +1,13 @@
 import React from 'react';
 import { styled } from 'linaria/react';
 
-import { Text } from '../text/Text';
-import { Button, ButtonProps } from '../controls/Button';
-import { VStack, VStackProps } from '../layout/VStack';
 import { Box } from '../layout/Box';
-import { HStack } from '../layout/HStack';
+import { CloseIcon } from '../icon/CloseIcon';
 import { Divider } from '../layout/Divider';
+import { HStack } from '../layout/HStack';
+import { IconButton, IconButtonProps } from '../controls/IconButton';
+import { Text } from '../text/Text';
+import { VStack, VStackProps } from '../layout/VStack';
 
 const Root = styled(VStack)`
 
@@ -22,7 +23,7 @@ const Header = styled(HStack)`
 
 export interface ModalBodyProps extends VStackProps {
   heading?: string;
-  onClose?: ButtonProps['onClick'];
+  onClose?: IconButtonProps['onClick'];
 }
 
 export const ModalBody: React.FC<ModalBodyProps> = ({
@@ -43,9 +44,13 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
           {heading}
         </Text>
       )}
-      <Button aria-label="Close dialog" onClick={onClose} title="Close dialog">
-        ✕
-      </Button>
+      <IconButton
+        aria-label="Close dialog"
+        onClick={onClose}
+        title="Close dialog"
+      >
+        <CloseIcon />
+      </IconButton>
     </Header>
     <Divider />
     <Box box={{ ph: 3, pv: 1 }}>{children}</Box>
