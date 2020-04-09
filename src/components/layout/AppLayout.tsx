@@ -4,7 +4,6 @@ import { styled } from 'linaria/react';
 
 import { SkipLink } from '../utils/SkipLink';
 import { ModalContext } from '../modal/ModalContext';
-import { useModal } from '../modal/ModalContext';
 
 const AppLayoutWrapper = styled.div`
 
@@ -62,8 +61,9 @@ export class AppLayout extends React.PureComponent<AppLayoutProps> {
       >
         <AppLayoutWrapper>
           <SkipLink href="#content">Skip to content</SkipLink>
+          <SkipLink href="#controls">Skip to controls</SkipLink>
           <AppLayoutContent id="content">{content}</AppLayoutContent>
-          <AppLayoutSidebar>{sidebar}</AppLayoutSidebar>
+          <AppLayoutSidebar id="controls">{sidebar}</AppLayoutSidebar>
         </AppLayoutWrapper>
         <div key="modal-root" ref={this._setModalRoot} />
       </ModalContext.Provider>
