@@ -30,6 +30,7 @@ export const InspectorDebugControls: React.FC<InspectorDebugControlsProps> = ({
         <ToggleField
           inputProps={{
             checked: showGrid,
+            id: 'debug-show-grid',
             name: 'showGrid',
             onChange: (event) => {
               onShowGridChange(event.target.checked);
@@ -41,6 +42,7 @@ export const InspectorDebugControls: React.FC<InspectorDebugControlsProps> = ({
         <ToggleField
           inputProps={{
             checked: showLayout,
+            id: 'debug-show-layout,',
             name: 'showLayout',
             onChange: (event) => {
               onShowLayoutChange(event.target.checked);
@@ -52,7 +54,11 @@ export const InspectorDebugControls: React.FC<InspectorDebugControlsProps> = ({
       </VStack>
       <NumericField
         label="Grid size"
-        inputProps={{ onChange: onGridSizeChange, value: gridSize }}
+        inputProps={{
+          id: 'debug-grid-size',
+          onChange: onGridSizeChange,
+          value: gridSize,
+        }}
         style={{ flex: 1, }}
       />
     </HStack>
