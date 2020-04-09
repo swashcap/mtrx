@@ -63,6 +63,8 @@ export const InspectorBreakpointControls: React.FC<InspectorBreakpointControlsPr
       );
     })}
     <Divider />
-    <Button onClick={onBreakpointAdd}>Add</Button>
+    <Button aria-label="Add breakpoint" onClick={onBreakpointAdd}>
+      Add
+    </Button>
   </InspectorFormSection>
 );

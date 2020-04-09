@@ -16,9 +16,14 @@ export const InspectorInfo: React.FC<InspectorInfoProps> = ({
 }) => (
   <HStack box={{ pb: 1, ph: 3, ...box }} gap={0} role="contentinfo" {...rest}>
     <VStack gap={0}>
-      <svg width="60px" height="14px" viewBox="0 0 60 14">
+      <svg
+        aria-label="mtrx logo"
+        width="60px"
+        height="14px"
+        viewBox="0 0 60 14"
+      >
         <g
-          id="Logo"
+          aria-hidden="true"
           stroke="none"
           stroke-width="1"
           fill="none"
@@ -62,7 +67,7 @@ export const InspectorInfo: React.FC<InspectorInfoProps> = ({
       </Caption>
     </VStack>
     <div style={{ flex: 2, }} />
-    <Button onClick={reset} title="Reset state">
+    <Button aria-label="Reset state" onClick={reset} title="Reset state">
       Reset
     </Button>
   </HStack>
