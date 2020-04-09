@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'linaria/react';
 
-import { ToggleInput, ToggleInputProps } from './ToggleInput';
-import { Text } from '../text/Text';
 import { HStack } from '../layout/HStack';
+import { Label } from '../text/Label';
+import { ToggleInput, ToggleInputProps } from './ToggleInput';
 
 const ToggleFieldLabel = styled.label`
 
@@ -24,7 +24,7 @@ export const ToggleField: React.FC<ToggleFieldProps> = ({
   <ToggleFieldLabel {...rest}>
     <HStack>
       <ToggleInput {...inputProps} />
-      <Text>{label}</Text>
+      <Label htmlFor={inputProps?.id}>{label}</Label>
     </HStack>
   </ToggleFieldLabel>
 );
