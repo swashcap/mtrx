@@ -4,6 +4,7 @@ import { styled } from 'linaria/react';
 import { Text } from '../text/Text';
 import { VStack } from '../layout/VStack';
 import { BoxProps } from '../layout/Box';
+import { uniqueId } from '../utils/uniqueId';
 
 const Fieldset = styled.fieldset`
 
@@ -25,15 +26,21 @@ export const InspectorFormSection: React.FC<InspectorFormSectionProps> = ({
   children,
   heading,
   ...rest
-}) => (
-  <Fieldset {...rest}>
-    <VStack box={box} gap={2}>
-      {heading && (
-        <Text as="legend" bold>
-          {heading}
-        </Text>
-      )}
-      {children}
-    </VStack>
-  </Fieldset>
-);
+}) => {
+  const headingId = heading
+    ? `inspectorFormSectionHeading${uniqueId()}`
+    : undefined;
+
+  return (
+    <Fieldset aria-describedby={headingId} role="region" {...rest}>
+      <VStack box={box} gap={2}>
+        {heading && (
+          <Text as="legend" bold id={headingId}>
+            {heading}
+          </Text>
+        )}
+        {children}
+      </VStack>
+    </Fieldset>
+  );
+};
