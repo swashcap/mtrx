@@ -59,7 +59,7 @@ export const Collapse: React.FC<CollapseProps> = ({
 }) => (
   <div {...rest}>
     <CollapseButton
-      aria-expanded={collapsed ? 'true' : 'false'}
+      aria-expanded={collapsed ? 'false' : 'true'}
       aria-controls={id}
       className={cx(collapsed && 'collapsed')}
       type="button"
@@ -69,7 +69,11 @@ export const Collapse: React.FC<CollapseProps> = ({
     >
       <HStack align="between" gap={0}>
         <span>{name}</span>
-        {collapsed ? <UpIcon /> : <DownIcon />}
+        {collapsed ? (
+          <UpIcon aria-hidden="true" />
+        ) : (
+          <DownIcon aria-hidden="true" />
+        )}
       </HStack>
     </CollapseButton>
     <div id={id}>{!collapsed && children}</div>
