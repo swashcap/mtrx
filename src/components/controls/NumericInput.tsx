@@ -116,6 +116,7 @@ export const NumericInput: React.FC<NumericInputProps> = ({
     />
     <NumericInputButtonWrapper gap={0}>
       <NumericInputButton
+        aria-hidden="true"
         onClick={() => {
           if (onChange && typeof value === 'number') {
             const nextValue = value + step;
@@ -126,11 +127,13 @@ export const NumericInput: React.FC<NumericInputProps> = ({
           }
         }}
         tabIndex={-1}
+        title="Increment"
         type="button"
       >
         <IncrementIcon />
       </NumericInputButton>
       <NumericInputButton
+        aria-hidden="true"
         onClick={() => {
           if (onChange && typeof value === 'number') {
             const nextValue = value - step;
@@ -141,6 +144,7 @@ export const NumericInput: React.FC<NumericInputProps> = ({
           }
         }}
         tabIndex={-1}
+        title="Decrement"
         type="button"
       >
         <DecrementIcon />
