@@ -33,6 +33,7 @@ export const ModalBody: React.FC<ModalBodyProps> = ({
   ...rest
 }) => (
   <Root
+    aria-modal="true"
     aria-labelledby={heading ? 'modal-heading' : ''}
     gap={0}
     role="dialog"
