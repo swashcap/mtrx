@@ -51,6 +51,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <SliderField
             inputProps={{
               ...width,
+              id: `inspector-breakpoint-${name}-width`,
               onChange: (value) =>
                 onBreakpointChange({
                   ...breakpoint,
@@ -67,6 +68,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Margin"
             inputProps={{
+              id: `inspector-breakpoint-${name}-margin`,
               min: 0,
               onChange: (margin) =>
                 onBreakpointChange({
@@ -85,6 +87,7 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Gutter"
             inputProps={{
+              id: `inspector-breakpoint-${name}-gutter`,
               min: 0,
               onChange: (gutter) =>
                 onBreakpointChange({
@@ -103,6 +106,9 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
           <NumericField
             label="Columns"
             inputProps={{
+              id: `inspector-breakpoint-${name}-columns`,
+              max: 12,
+              min: 1,
               onChange: (columns) =>
                 onBreakpointChange({
                   ...breakpoint,
@@ -111,8 +117,6 @@ export const InspectorBreakpoint: React.FC<InspectorBreakpointProps> = ({
                     columns,
                   },
                 }),
-              min: 1,
-              max: 12,
               value: grid.columns,
             }}
             style={{
