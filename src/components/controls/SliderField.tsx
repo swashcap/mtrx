@@ -27,7 +27,7 @@ export const SliderField: React.FC<SliderFieldProps> = ({
 
   return (
     <VStack gap={0} {...rest}>
-      {!!label && <Label>{label}</Label>}
+      {!!label && <Label htmlFor={inputProps?.id}>{label}</Label>}
       <HStack gap={2}>
         <SliderInput
           onChange={(event) => {
