@@ -30,12 +30,19 @@ export interface AppLayoutProps {
 }
 
 export class AppLayout extends React.PureComponent<AppLayoutProps> {
+  private _layoutRef = React.createRef<HTMLDivElement>();
   private _queuedModal: React.ReactElement | null = null;
   private _modalRoot: HTMLDivElement | null = null;
 
   setModal = (element: React.ReactElement | null) => {
     if (this._modalRoot) {
-      render(element === null ? <></> : element, this._modalRoot);
+      if (element) {
+        render(element, this._modalRoot);
+        this._layoutRef.current?.setAttribute('aria-hidden', 'true');
+      } else {
+        render(<></>, this._modalRoot);
+        this._layoutRef.current?.removeAttribute('aria-hidden');
+      }
     } else {
       this._queuedModal = element;
     }
@@ -47,6 +54,7 @@ export class AppLayout extends React.PureComponent<AppLayoutProps> {
     if (this._queuedModal) {
       render(this._queuedModal, this._modalRoot);
       this._queuedModal = null;
+      this._layoutRef.current?.setAttribute('aria-hidden', 'true');
     }
   };
 
@@ -59,7 +67,7 @@ export class AppLayout extends React.PureComponent<AppLayoutProps> {
           setModal: this.setModal,
         }}
       >
-        <AppLayoutWrapper>
+        <AppLayoutWrapper ref={this._layoutRef}>
           <SkipLink href="#content">Skip to content</SkipLink>
           <SkipLink href="#controls">Skip to controls</SkipLink>
           <AppLayoutContent id="content">{content}</AppLayoutContent>
