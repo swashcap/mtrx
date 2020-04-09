@@ -29,24 +29,24 @@ export const InspectorInfo: React.FC<InspectorInfoProps> = ({
           <path
             d="M48,2 L58,12 M58,2 L48,12"
             id="X"
-            stroke="#ffffff"
+            stroke="currentColor"
             stroke-width="2"
           ></path>
           <polyline
             id="R"
-            stroke="#ffffff"
+            stroke="currentColor"
             stroke-width="2"
             points="37 12 37 2 41.9884684 2 44.9496421 4.96117376"
           ></polyline>
           <polyline
             id="T"
-            stroke="#ffffff"
+            stroke="currentColor"
             stroke-width="2"
             points="32.8033728 12 32.8033728 2 26 2"
           ></polyline>
           <polyline
             id="M"
-            stroke="#ffffff"
+            stroke="currentColor"
             stroke-width="2"
             points="2 12 11.950696 2.09812417 11.950696 12 22 2 22 12"
           ></polyline>
