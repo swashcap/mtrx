@@ -1,7 +1,8 @@
 import React from 'react';
 import { styled } from 'linaria/react';
-import { HStack } from '../layout/HStack';
+
 import { Divider } from '../layout/Divider';
+import { HStack } from '../layout/HStack';
 
 const Root = styled.div`
 
@@ -33,6 +34,6 @@ export const TextControlRow: React.FC<TextControlRowProps> = ({
     <Stack box={{ pv: 2 }} gap={2}>
       {children}
     </Stack>
-    <Divider />
+    <Divider aria-hidden="true" />
   </Root>
 );

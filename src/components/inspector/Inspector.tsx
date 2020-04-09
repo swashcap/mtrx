@@ -74,7 +74,7 @@ export const Inspector: React.FC<InspectorProps> = ({
     </VStack>
     <div style={{ flex: 2, }} />
     <VStack gap={2}>
-      <Divider />
+      <Divider aria-hidden="true" />
       <InspectorInfo />
     </VStack>
   </InspectorWrapper>
