@@ -27,6 +27,7 @@ export const Screen: React.FC<ScreenProps> = ({
   ...rest
 }) => (
   <ScreenWrapper
+    aria-label={`${name}, ${width} pixels by ${height} pixels`}
     box={{
       mv: 2,
       ...box,
@@ -35,11 +36,13 @@ export const Screen: React.FC<ScreenProps> = ({
     {...rest}
   >
     <ScreenViewport
+      aria-hidden="true"
       children={children}
       debug={debug}
       style={{ height, width, }}
     />
     <ScreenDescriptor
+      aria-hidden="true"
       name={name}
       size={
         <>
