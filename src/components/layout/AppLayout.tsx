@@ -9,6 +9,11 @@ const AppLayoutWrapper = styled.div`
 
   display: flex;
   height: 100vh;
+
+  &[aria-hidden] {
+    pointer-events: none;
+    user-select: none;
+  }
 `;
 
 const AppLayoutContent = styled.div`
@@ -39,9 +44,11 @@ export class AppLayout extends React.PureComponent<AppLayoutProps> {
       if (element) {
         render(element, this._modalRoot);
         this._layoutRef.current?.setAttribute('aria-hidden', 'true');
+        this._layoutRef.current?.setAttribute('inert', 'true');
       } else {
         render(<></>, this._modalRoot);
         this._layoutRef.current?.removeAttribute('aria-hidden');
+        this._layoutRef.current?.removeAttribute('inert');
       }
     } else {
       this._queuedModal = element;
@@ -55,6 +62,7 @@ export class AppLayout extends React.PureComponent<AppLayoutProps> {
       render(this._queuedModal, this._modalRoot);
       this._queuedModal = null;
       this._layoutRef.current?.setAttribute('aria-hidden', 'true');
+      this._layoutRef.current?.setAttribute('inert', 'true');
     }
   };
 
