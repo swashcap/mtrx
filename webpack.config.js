@@ -12,7 +12,7 @@ module.exports = {
     hot: true,
     port: 3000,
   },
-  devtool: isProdEnv ? '' : 'inline-source-map',
+  devtool: isProdEnv ? false : 'inline-source-map',
   entry: './src/index.tsx',
   mode: isProdEnv ? 'production' : 'development',
   module: {
