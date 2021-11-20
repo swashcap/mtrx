@@ -21,7 +21,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "clean-css-loader": "^4.1.1",
     "css-loader": "^6.5.1",
-    "fork-ts-checker-webpack-plugin": "^6.1.0",
+    "fork-ts-checker-webpack-plugin": "^6.4.0",
     "html-webpack-plugin": "^5.2.0",
     "husky": "^4.3.0",
     "jest": "^26.6.3",
