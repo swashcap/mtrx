@@ -6,7 +6,7 @@ import { ContentGrid } from '../content/ContentGrid';
 import { DebugLayoutColumn } from './DebugLayoutColumn';
 import { HStack } from '../layout/HStack';
 import { getColumnWidth } from '../utils/getColumnWidth';
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 const DebugLayoutOuter = styled.div`
 

@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 interface ContentGridColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   columns: number;

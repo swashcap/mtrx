@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 import { BreakpointsState, Breakpoint } from '../../state/breakpoints';
 import { Divider } from '../layout/Divider';

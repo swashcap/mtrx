@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 import { Abbr } from '../text/Abbr';
 import { Box, BoxProps } from '../layout/Box';

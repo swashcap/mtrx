@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 import { HStack } from '../layout/HStack';
 import { VStack } from '../layout/VStack';

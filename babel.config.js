@@ -13,11 +13,6 @@ module.exports = {
         isTSX: true,
       },
     ],
-    [
-      'linaria/babel',
-      {
-        displayName: true,
-      },
-    ],
+    '@linaria',
   ],
 };

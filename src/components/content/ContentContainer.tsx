@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 export interface ContentContainerProps
   extends React.HTMLAttributes<HTMLDivElement> {

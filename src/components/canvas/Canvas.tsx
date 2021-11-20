@@ -10,7 +10,7 @@ import { Screen } from '../screen/Screen';
 import { ScreensState } from '../../state/screens';
 import { SettingsState } from '../../state/settings';
 import { getBreakpointRetriever } from '../utils/getBreakpointRetriever';
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 export interface CanvasProps extends HStackProps {
   breakpoints: BreakpointsState;

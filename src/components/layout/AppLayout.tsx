@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 import { SkipLink } from '../utils/SkipLink';
 import { ModalContext } from '../modal/ModalContext';
