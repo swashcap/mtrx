@@ -1,5 +1,6 @@
 {
-  "extends": "stylelint-config-standard",
+  "customSyntax": "@stylelint/postcss-css-in-js",
+  "extends": ["stylelint-config-recommended", "@linaria/stylelint"],
   "rules": {
     "max-empty-lines": null
   }

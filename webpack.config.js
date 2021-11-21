@@ -47,7 +47,7 @@ module.exports = {
             },
           },
           {
-            loader: 'linaria/loader',
+            loader: '@linaria/webpack-loader',
             options: {
               sourceMap: !isProdEnv,
             },

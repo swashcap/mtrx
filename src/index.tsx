@@ -1,5 +1,5 @@
 import React from 'react';
-import { cx } from 'linaria';
+import { cx } from '@linaria/core';
 import { render } from 'react-dom';
 
 import '../node_modules/normalize.css/normalize.css';

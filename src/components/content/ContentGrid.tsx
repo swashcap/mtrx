@@ -1,4 +1,4 @@
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
 export interface ContentGridProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter: number;

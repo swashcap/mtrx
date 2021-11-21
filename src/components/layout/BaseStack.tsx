@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { cx } from 'linaria';
-import { styled } from 'linaria/react';
+import { cx } from '@linaria/core';
+import { styled } from '@linaria/react';
 
 import { Box, BoxProps } from './Box';
 import { SpacingUnit } from '../../types';

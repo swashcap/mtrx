@@ -1,6 +1,6 @@
 import React from 'react';
-import { cx } from 'linaria';
-import { styled } from 'linaria/react';
+import { cx } from '@linaria/core';
+import { styled } from '@linaria/react';
 
 import { DownIcon } from '../icon/DownIcon';
 import { HStack } from '../layout/HStack';
